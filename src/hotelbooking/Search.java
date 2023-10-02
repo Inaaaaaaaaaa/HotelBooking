@@ -22,6 +22,7 @@ public class Search extends JFrame implements ActionListener {
     
     public Search()
     {
+        //title of frame
         super ("Room");
         
         //initialize components
@@ -32,7 +33,6 @@ public class Search extends JFrame implements ActionListener {
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-       
     }
     
     public void showSearch()
@@ -75,6 +75,7 @@ public class Search extends JFrame implements ActionListener {
     
     public void initActionListener() 
     {
+        //adding number of adults&children to actionlistener
        this.number_of_adults.addActionListener(this);
        this.number_of_children.addActionListener(this);
     }
