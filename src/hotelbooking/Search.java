@@ -16,9 +16,11 @@ import javax.swing.*;
 
 public class Search extends JFrame implements ActionListener {
     
+    //variables
     private JFrame search;
     public JComboBox<Integer> number_of_adults;
     public JComboBox<Integer> number_of_children;
+    public JButton nextBtn;
     
     public Search()
     {
@@ -33,6 +35,12 @@ public class Search extends JFrame implements ActionListener {
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        //next button
+        JPanel southPanel = new JPanel();
+        nextBtn = new JButton("Next");
+        nextBtn.addActionListener(e -> Rooms());
+        southPanel.add(nextBtn);
     }
     
     public void showSearch()
@@ -80,7 +88,6 @@ public class Search extends JFrame implements ActionListener {
        this.number_of_children.addActionListener(this);
     }
         
-
     @Override
     public void actionPerformed(ActionEvent e) {
 
@@ -89,7 +96,11 @@ public class Search extends JFrame implements ActionListener {
             this.number_of_adults.getSelectedItem().toString();
             this.number_of_children.getSelectedItem().toString();
         }
-
-    }    
+    }  
+    
+    private void Rooms()
+    {
+        
+    }
             
  }
