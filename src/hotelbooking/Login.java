@@ -10,8 +10,6 @@ package hotelbooking;
  */
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -96,8 +94,8 @@ public class Login extends JFrame {
     }
 
 
-    //regiser user
-    private void registerUser(String username, String password)
+    //regiser user -> test case 1 
+    public void registerUser(String username, String password)
     {
         if(username.isEmpty() || password.isEmpty())
         {
