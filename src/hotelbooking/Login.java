@@ -30,8 +30,8 @@ public class Login extends JFrame {
         //title of the frame
         super("Hotel Name Login");
         
-        //center panel
-        BGPanel centerPanel = new BGPanel();
+        //center panel & image
+        BGPanel centerPanel = new BGPanel("./resources/hotel.jpg");
         
         //username -> if user has an account
         JLabel UsernameLabel = new JLabel("Username: ");
@@ -89,6 +89,9 @@ public class Login extends JFrame {
         {
             //unsuccessful login
             JOptionPane.showMessageDialog(this, "Details were not found in the system! Please register. ");
+            //leaves box cleared
+            usernameF.setText("");   
+            passwordF.setText("");
 
         }
     }

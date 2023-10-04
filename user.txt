@@ -3,3 +3,12 @@ Number of adults: 1
 Number of children: 1
 testUser : testPassword
 testUser : testPassword
+Number of adults: 0
+Number of children: 0
+--------------------
+Number of adults: 0
+Number of children: 0
+--------------------
+Number of adults: 0
+Number of children: 0
+--------------------

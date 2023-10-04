@@ -23,13 +23,15 @@ public class Search extends JFrame implements ActionListener {
     private JFrame search;
     public JComboBox<Integer> number_of_adults;
     public JComboBox<Integer> number_of_children;
+    public JComboBox<Integer> number_of_rooms;
     public JButton nextBtn;
+    private JButton logoutBtn;
     
     public Search()
     {
         //title of frame
         super ("Search");
-        
+ 
         //initialize components
         Components();
         Panels();
@@ -38,7 +40,6 @@ public class Search extends JFrame implements ActionListener {
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-       
     }
     
     //show search frame
@@ -62,28 +63,55 @@ public class Search extends JFrame implements ActionListener {
         {
             this.number_of_children.addItem(index);
         }
+        
+        //number of rooms
+        this.number_of_rooms = new JComboBox<>();  
+        for(int index = 0; index <= 10; index++)
+        {
+            this.number_of_rooms.addItem(index);
+        }
     }
     
     public void Panels()
     {
-        //North Panel
+        //North Panel -> labels
         JPanel centerPanel = new JPanel();
+        
         JLabel sign = new JLabel("Welcome to hotel name! To get started, please choose the number of adults/children below.");
         centerPanel.add(sign);
+        
+        //adult
         JLabel adultLabel = new JLabel("Number of adults: ");
-        JLabel childLabel = new JLabel("Number of children: ");
         centerPanel.add(adultLabel);
         centerPanel.add(this.number_of_adults);
+        
+        //children
+        JLabel childLabel = new JLabel("Number of children: ");
         centerPanel.add(childLabel);
         centerPanel.add(this.number_of_children);
+        
+        //rooms
+        JLabel roomLabel = new JLabel("Number of rooms: ");
+        centerPanel.add(roomLabel);
+        centerPanel.add(this.number_of_rooms);
+        
         this.add(centerPanel, BorderLayout.CENTER);
         
         //south panel
         JPanel southPanel = new JPanel();
+        
+        //back button
+        logoutBtn = new JButton("Logout");
+        logoutBtn.addActionListener(e -> logout());
+        southPanel.add(logoutBtn);
+        
+        //next button
         nextBtn = new JButton("Next");
         nextBtn.addActionListener(e -> Rooms());
         southPanel.add(nextBtn);
+       
         this.add(southPanel, BorderLayout.SOUTH);
+        
     }
     
     
@@ -129,6 +157,14 @@ public class Search extends JFrame implements ActionListener {
         
         Rooms show = new Rooms();
         show.showRooms();
+        this.dispose();
+    }
+    
+    //Login frame
+    public void logout()
+    {
+        Login logins = new Login();
+        logins.setVisible(true);
         this.dispose();
     }
             

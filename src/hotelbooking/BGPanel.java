@@ -18,13 +18,15 @@ public class BGPanel extends JPanel {
     public Image image;
 
     //adding images to the JFrame
-    public BGPanel() {
-        this.image = new ImageIcon("./resources/hotel.jpg").getImage();
+    public BGPanel(String imagePath) {
+        this.image = new ImageIcon(imagePath).getImage();
     }
-
+    
     @Override
     public void paintComponent(Graphics g) {
         super.paintComponent(g);
-        g.drawImage(this.image, 0, 0, null);
+        g.drawImage(this.image, 0, 0, this.getWidth(),this.getHeight(), this);
     }
+    
+
 }
