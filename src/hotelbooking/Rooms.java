@@ -8,6 +8,25 @@ package hotelbooking;
  *
  * @author aimee
  */
-public class Rooms {
+
+import javax.swing.JFrame;
+
+public class Rooms extends JFrame {
+    
+    public Rooms()
+    {
+        //creating frame
+        setTitle("Room details");
+        setSize(500,500);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
+    
+    //show Rooms frame
+    public void showRooms()
+    {
+        setVisible(true);
+    }
+    
     
 }

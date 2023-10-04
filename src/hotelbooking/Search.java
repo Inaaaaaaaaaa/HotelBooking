@@ -13,6 +13,9 @@ import java.awt.Font;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
 
 public class Search extends JFrame implements ActionListener {
     
@@ -25,7 +28,7 @@ public class Search extends JFrame implements ActionListener {
     public Search()
     {
         //title of frame
-        super ("Room");
+        super ("Search");
         
         //initialize components
         Components();
@@ -35,14 +38,10 @@ public class Search extends JFrame implements ActionListener {
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
-        
-        //next button
-        JPanel southPanel = new JPanel();
-        nextBtn = new JButton("Next");
-        nextBtn.addActionListener(e -> Rooms());
-        southPanel.add(nextBtn);
+       
     }
     
+    //show search frame
     public void showSearch()
     {
         setVisible(true);
@@ -52,14 +51,14 @@ public class Search extends JFrame implements ActionListener {
     {
         //number of adults
         this.number_of_adults = new JComboBox<>();  
-        for(int index = 1; index <= 10; index++)
+        for(int index = 0; index <= 10; index++)
         {
             this.number_of_adults.addItem(index);
         }
         
         //number of children
         this.number_of_children = new JComboBox<>();  
-        for(int index = 1; index <= 10; index++)
+        for(int index = 0; index <= 10; index++)
         {
             this.number_of_children.addItem(index);
         }
@@ -78,6 +77,13 @@ public class Search extends JFrame implements ActionListener {
         centerPanel.add(childLabel);
         centerPanel.add(this.number_of_children);
         this.add(centerPanel, BorderLayout.CENTER);
+        
+        //south panel
+        JPanel southPanel = new JPanel();
+        nextBtn = new JButton("Next");
+        nextBtn.addActionListener(e -> Rooms());
+        southPanel.add(nextBtn);
+        this.add(southPanel, BorderLayout.SOUTH);
     }
     
     
@@ -98,9 +104,32 @@ public class Search extends JFrame implements ActionListener {
         }
     }  
     
-    private void Rooms()
+    //show room frame
+    public void Rooms()
     {
+        //saving informtion of number of adults and children 
+        int adults = (int) this.number_of_adults.getSelectedItem();
+        int children = (int) this.number_of_children.getSelectedItem();
         
+        //save to user.txt
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true)))
+        {
+            writer.write("Number of adults: " + adults);
+            writer.newLine();
+            writer.write("Number of children: " + children);
+            writer.newLine();
+            //line breaker
+            writer.write("--------------------");
+            writer.newLine();
+        }
+        catch(IOException e)
+        {
+            e.printStackTrace();
+        }
+        
+        Rooms show = new Rooms();
+        show.showRooms();
+        this.dispose();
     }
             
  }

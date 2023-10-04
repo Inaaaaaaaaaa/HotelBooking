@@ -82,8 +82,8 @@ public class Login extends JFrame {
             this.dispose();
             
             //show the search frame
-            Search seartch1 = new Search();
-            seartch1.showSearch();
+            Search search1 = new Search();
+            search1.showSearch();
         }
         else
         {
