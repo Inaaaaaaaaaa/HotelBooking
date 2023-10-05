@@ -59,5 +59,17 @@ public class LoginTest {
         String[] args = null;
         Login.main(args);
     }
+
+    /**
+     * Test of registerUser method, of class Login.
+     */
+    @Test
+    public void testRegisterUser() {
+        System.out.println("registerUser");
+        String username = "";
+        String password = "";
+        Login instance = new Login();
+        instance.registerUser(username, password);
+    }
     
 }

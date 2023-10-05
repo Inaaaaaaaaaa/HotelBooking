@@ -167,5 +167,5 @@ public class Search extends JFrame implements ActionListener {
         logins.setVisible(true);
         this.dispose();
     }
-            
+         
  }
