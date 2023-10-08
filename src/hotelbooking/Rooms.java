@@ -27,6 +27,5 @@ public class Rooms extends JFrame {
     {
         setVisible(true);
     }
-    
-    
+   
 }
