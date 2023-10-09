@@ -16,6 +16,22 @@ import javax.swing.*;
 //when user books a room, information will be stored into their account 
 public class Booking extends JFrame {
     
+    public Booking()
+    {
+        //title of the frame 
+        super("Booking confirmaion");
+        
+        //creating and setting size of new frame
+        setSize(600, 600);
+        setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        setLocationRelativeTo(null);
+    }
     
-    
+   
+    //show Booking frame
+    public void showBookings()
+    {
+        setVisible(true);
+    }
+   
 }

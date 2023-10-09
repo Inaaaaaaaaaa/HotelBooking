@@ -45,5 +45,25 @@ public class RoomsTest {
         Rooms instance = new Rooms(2,3);
         instance.showRooms();
     }
+
+    /**
+     * Test of logout method, of class Rooms.
+     */
+    @Test
+    public void testLogout() {
+        System.out.println("logout");
+        Rooms instance = new Rooms(2,3);
+        instance.logout();
+    }
+
+    /**
+     * Test of booking method, of class Rooms.
+     */
+    @Test
+    public void testBooking() {
+        System.out.println("booking");
+        Rooms instance = new Rooms(2,3);
+        instance.booking();
+    }
     
 }
