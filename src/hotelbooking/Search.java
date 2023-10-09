@@ -9,6 +9,7 @@ package hotelbooking;
  * @author aimee
  */
 import java.awt.BorderLayout;
+import java.awt.Image;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.*;
@@ -69,8 +70,10 @@ public class Search extends JFrame implements ActionListener {
         //North Panel -> labels
         JPanel centerPanel = new JPanel();
         
-        JLabel sign = new JLabel("Welcome to hotel name! To get started, please choose the number of adults/children below.");
-        centerPanel.add(sign);
+        JLabel sign1 = new JLabel("Welcome to hotel name!");
+        JLabel sign2 = new JLabel("To get started, please choose the number of adults/children below.");
+        centerPanel.add(sign1);
+        centerPanel.add(sign2);
         
         //adult
         JLabel adultLabel = new JLabel("Number of adults: ");
@@ -97,7 +100,17 @@ public class Search extends JFrame implements ActionListener {
         nextBtn.addActionListener(e -> Rooms());
         southPanel.add(nextBtn);
        
+        //adding next and back button
         this.add(southPanel, BorderLayout.SOUTH);
+        
+        //adding image
+        ImageIcon image1 = new ImageIcon("./resources/view.jpg");
+        Image image = image1.getImage();
+        Image resizedImage= image.getScaledInstance(550, 550, java.awt.Image.SCALE_SMOOTH);
+        ImageIcon resizedIcon = new ImageIcon(resizedImage);
+        JLabel imageLabel = new JLabel(resizedIcon);
+        centerPanel.add(imageLabel);
+       
         
     }
    
