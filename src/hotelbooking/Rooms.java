@@ -18,6 +18,7 @@ import javax.swing.BoxLayout;
 import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.*;
 
 public class Rooms extends JFrame {
             
@@ -25,7 +26,7 @@ public class Rooms extends JFrame {
         private int number_of_adults;
         private int number_of_children;
         public JComboBox<Integer> requested_number_of_rooms;
-
+        private JButton logoutBtn;
     
     public Rooms(int adults, int children)
     {
@@ -37,6 +38,13 @@ public class Rooms extends JFrame {
         setSize(700,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+        
+        //back button and north panel -> logout button is placed on the right hand corner of the fra,e
+        JPanel cornerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); //FlowLayout -> chatGPT
+        logoutBtn = new JButton("Logout");
+        logoutBtn.addActionListener(e -> logout());
+        cornerPanel.add(logoutBtn);
+        this.add(cornerPanel, BorderLayout.NORTH);
         
         //align images of rooms in the frame
         JPanel main = new JPanel();
@@ -50,7 +58,9 @@ public class Rooms extends JFrame {
             Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
             ImageIcon resizedIcon = new ImageIcon(resizedImage);
             
-            addRoom(main, "Single Room", "Free wi-fi, 24hr shower access, 1 Bathroom, 1 single bed", "$150", resizedIcon);
+            //<html> chatGPT
+            addRoom(main, "Single Room", "<html> Free wi-fi<br> Shower access<br> 1 Bathroom<br> 1 single bed<br> Cleaning service provided</html>",
+                    "\nPrice: $150", resizedIcon);
         }
         else if(number_of_adults == 2)
         {
@@ -91,16 +101,19 @@ public class Rooms extends JFrame {
         //spacing for image and details
         roomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
         
-        //room details 
-        JPanel details = new JPanel();
-        details.setLayout(new BoxLayout(details, BoxLayout.Y_AXIS));
         
         //labels
         JLabel name = new JLabel(roomName);
         JLabel price = new JLabel(roomPrice);
+        JLabel roomdescription = new JLabel(roomDetails);
+        
+        //room detail panel
+        JPanel details = new JPanel();
+        details.setLayout(new BoxLayout(details, BoxLayout.Y_AXIS));
 
         //adding labels
         details.add(name);
+        details.add(roomdescription);
         details.add(price);
         
         roomPanel.add(details);
@@ -108,6 +121,16 @@ public class Rooms extends JFrame {
         //adding main panel to room
         main.add(roomPanel);
     }
+    
+    //logout 
+    public void logout()
+    {
+        Login logins = new Login();
+        logins.setVisible(true);
+        this.dispose();
+    }
+    
+    
     
     //show Rooms frame
     public void showRooms()
