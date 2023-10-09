@@ -22,7 +22,6 @@ public class Search extends JFrame implements ActionListener {
     private JFrame search;
     public JComboBox<Integer> number_of_adults;
     public JComboBox<Integer> number_of_children;
-    public JComboBox<Integer> number_of_rooms;
     public JButton nextBtn;
     private JButton logoutBtn;
     
@@ -51,24 +50,18 @@ public class Search extends JFrame implements ActionListener {
     {
         //number of adults
         this.number_of_adults = new JComboBox<>();  
-        for(int index = 0; index <= 10; index++)
+        for(int index = 0; index <= 6; index++)
         {
             this.number_of_adults.addItem(index);
         }
         
         //number of children
         this.number_of_children = new JComboBox<>();  
-        for(int index = 0; index <= 10; index++)
+        for(int index = 0; index <= 6; index++)
         {
             this.number_of_children.addItem(index);
         }
-        
-        //number of rooms
-        this.number_of_rooms = new JComboBox<>();  
-        for(int index = 0; index <= 10; index++)
-        {
-            this.number_of_rooms.addItem(index);
-        }
+       
     }
     
     public void Panels()
@@ -89,11 +82,6 @@ public class Search extends JFrame implements ActionListener {
         centerPanel.add(childLabel);
         centerPanel.add(this.number_of_children);
         
-        //rooms
-        JLabel roomLabel = new JLabel("Number of rooms: ");
-        centerPanel.add(roomLabel);
-        centerPanel.add(this.number_of_rooms);
-        
         this.add(centerPanel, BorderLayout.CENTER);
         
         //south panel
@@ -112,7 +100,7 @@ public class Search extends JFrame implements ActionListener {
         this.add(southPanel, BorderLayout.SOUTH);
         
     }
-    
+   
     
     public void initActionListener() 
     {
@@ -131,7 +119,7 @@ public class Search extends JFrame implements ActionListener {
         }
     }  
     
-    //show room frame
+    //show room frame : SAVING INFORMATION INTO .TXT FILE
     public void Rooms()
     {
         //saving informtion of number of adults and children 
@@ -154,12 +142,12 @@ public class Search extends JFrame implements ActionListener {
             e.printStackTrace();
         }
         
-        Rooms show = new Rooms();
+        Rooms show = new Rooms(adults, children);
         show.showRooms();
         this.dispose();
     }
     
-    //Login frame
+    //Login frame set to visible
     public void logout()
     {
         Login logins = new Login();

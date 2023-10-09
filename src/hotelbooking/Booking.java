@@ -8,6 +8,8 @@ package hotelbooking;
  *
  * @author aimee
  */
+
+//when user books a room, information will be stored into their account 
 public class Booking {
     
 }

@@ -132,8 +132,9 @@ public class Login extends JFrame {
             //read line in user.txt
             for (String line : Files.readAllLines(Paths.get("user.txt")))
             {
+                //username : password 
                 String[] lines = line.split(" : ");
-                
+                //checking if login user/password matches what is in the .txt file 
                 if(lines.length == 2 && lines[0].equals(username) && lines[1].equals(password))
                 {
                     return true;
@@ -144,9 +145,11 @@ public class Login extends JFrame {
         {
             e.printStackTrace();
         }
+        //if not found, return false
         return false;
     }
     
+    //display login frame
     public static void main(String args[])
     {
         Login cf = new Login();
