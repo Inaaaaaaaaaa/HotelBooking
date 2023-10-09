@@ -75,12 +75,12 @@ public class Search extends JFrame implements ActionListener {
         centerPanel.add(sign1);
         centerPanel.add(sign2);
         
-        //adult
+        //adult label
         JLabel adultLabel = new JLabel("Number of adults: ");
         centerPanel.add(adultLabel);
         centerPanel.add(this.number_of_adults);
         
-        //children
+        //children label
         JLabel childLabel = new JLabel("Number of children: ");
         centerPanel.add(childLabel);
         centerPanel.add(this.number_of_children);
@@ -110,8 +110,6 @@ public class Search extends JFrame implements ActionListener {
         ImageIcon resizedIcon = new ImageIcon(resizedImage);
         JLabel imageLabel = new JLabel(resizedIcon);
         centerPanel.add(imageLabel);
-       
-        
     }
    
     

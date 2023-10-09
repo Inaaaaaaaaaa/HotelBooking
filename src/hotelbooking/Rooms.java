@@ -27,6 +27,7 @@ public class Rooms extends JFrame {
         private int number_of_children;
         public JComboBox<Integer> requested_number_of_rooms;
         private JButton logoutBtn;
+        private JButton selectBtn;
     
     public Rooms(int adults, int children)
     {
@@ -53,14 +54,31 @@ public class Rooms extends JFrame {
         //number of adults (from search class) ROOM DETAILS
         if(number_of_adults == 1)
         {
-            ImageIcon image1 = new ImageIcon("./resources/room1.jpg");
+            //room 1
+            ImageIcon image1 = new ImageIcon("./resources/room1.png");
             Image image = image1.getImage();
             Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
             ImageIcon resizedIcon = new ImageIcon(resizedImage);
-            
+               
             //<html> chatGPT
-            addRoom(main, "Single Room", "<html> Free wi-fi<br> Shower access<br> 1 Bathroom<br> 1 single bed<br> Cleaning service provided</html>",
-                    "\nPrice: $150", resizedIcon);
+            addRoom(main, "Single Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>",
+                    "Price: $150", resizedIcon);
+            
+            //select button
+            JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+            selectBtn = new JButton("Select");
+            selectBtn.addActionListener(e -> booking());
+            corner.add(selectBtn);
+            this.add(corner, BorderLayout.EAST);
+            
+            //room 2 
+            
+            
+            //room 3
+            
+            //room 4
+            
+            
         }
         else if(number_of_adults == 2)
         {
@@ -94,13 +112,12 @@ public class Rooms extends JFrame {
         JPanel roomPanel = new JPanel();
         roomPanel.setLayout(new BoxLayout(roomPanel, BoxLayout.X_AXIS));
         
-        //image
+        //image and button panel
         JLabel image = new JLabel(roomimage);
         roomPanel.add(image);
-        
+             
         //spacing for image and details
         roomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
-        
         
         //labels
         JLabel name = new JLabel(roomName);
@@ -130,8 +147,15 @@ public class Rooms extends JFrame {
         this.dispose();
     }
     
-    
-    
+    //booking 
+    public void booking()
+    {
+        Booking bookings = new Booking();
+        bookings.setVisible(true);
+        this.dispose();
+        
+    }
+   
     //show Rooms frame
     public void showRooms()
     {

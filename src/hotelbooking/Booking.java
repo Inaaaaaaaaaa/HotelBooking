@@ -9,7 +9,13 @@ package hotelbooking;
  * @author aimee
  */
 
+import java.awt.Graphics;
+import java.awt.Image;
+import javax.swing.*;
+
 //when user books a room, information will be stored into their account 
-public class Booking {
+public class Booking extends JFrame {
+    
+    
     
 }
