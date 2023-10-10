@@ -19,7 +19,7 @@ public class Booking extends JFrame {
     public Booking()
     {
         //title of the frame 
-        super("Booking confirmaion");
+        super("Booking confirmation");
         
         //creating and setting size of new frame
         setSize(600, 600);

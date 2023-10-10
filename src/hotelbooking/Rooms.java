@@ -19,6 +19,8 @@ import javax.swing.JPanel;
 import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.*;
+import java.util.ArrayList;
+import java.util.List;
 
 public class Rooms extends JFrame {
             
@@ -51,29 +53,18 @@ public class Rooms extends JFrame {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
         
+        List<Roomdata> rooms = new ArrayList<>();
+        
         //number of adults (from search class) ROOM DETAILS
         if(number_of_adults == 1)
         {
             //room 1
-            ImageIcon image1 = new ImageIcon("./resources/room1.png");
-            Image image = image1.getImage();
-            Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
-            ImageIcon resizedIcon = new ImageIcon(resizedImage);
-               
-            //<html> chatGPT
-            addRoom(main, "Single Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>",
-                    "Price: $150", resizedIcon);
-            
-            //select button
-            JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
-            selectBtn = new JButton("Select");
-            selectBtn.addActionListener(e -> booking());
-            corner.add(selectBtn);
-            this.add(corner, BorderLayout.EAST);
-            
+            rooms.add(new Roomdata("./resources/room1.png", "Single Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
+
             //room 2 
-            
-            
+            rooms.add(new Roomdata("./resources/room1.png", "DOUBLE Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
+
+
             //room 3
             
             //room 4
@@ -100,6 +91,24 @@ public class Rooms extends JFrame {
         {
             
         }
+        
+        for(Roomdata data : rooms)
+        {
+            ImageIcon images = new ImageIcon(data.image);
+            Image image = images.getImage();
+            Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
+            ImageIcon resizedIcon = new ImageIcon(resizedImage);
+                        
+            //select button (shows on every picture)
+            JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+            selectBtn = new JButton("Select");
+            selectBtn.addActionListener(e -> booking());
+            corner.add(selectBtn);
+            this.add(corner, BorderLayout.EAST);
+            
+            addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);
+                           
+        }
         add(main, BorderLayout.CENTER);
         
         //number of children
@@ -107,7 +116,7 @@ public class Rooms extends JFrame {
     
     
     //add room
-    private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage)
+    private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
     {
         JPanel roomPanel = new JPanel();
         roomPanel.setLayout(new BoxLayout(roomPanel, BoxLayout.X_AXIS));
@@ -134,6 +143,11 @@ public class Rooms extends JFrame {
         details.add(price);
         
         roomPanel.add(details);
+        
+        //adding button
+        JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+        buttonPanel.add(selectBtn);
+        roomPanel.add(buttonPanel);
         
         //adding main panel to room
         main.add(roomPanel);
