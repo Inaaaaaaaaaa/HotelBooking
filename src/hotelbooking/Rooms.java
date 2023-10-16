@@ -30,7 +30,8 @@ public class Rooms extends JFrame {
         public JComboBox<Integer> requested_number_of_rooms;
         private JButton logoutBtn;
         private JButton selectBtn;
-    
+        private List<Roomdata> rooms = new ArrayList<>();
+        
     public Rooms(int adults, int children)
     {
         this.number_of_adults = adults;
@@ -52,48 +53,23 @@ public class Rooms extends JFrame {
         //align images of rooms in the frame
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-        
-        List<Roomdata> rooms = new ArrayList<>();
-        
-        //number of adults (from search class) ROOM DETAILS
-        if(number_of_adults == 1)
+                
+        //switch case
+        switch(number_of_adults)
         {
-            //room 1
-            rooms.add(new Roomdata("./resources/room1.png", "Single Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
-
-            //room 2 
-            rooms.add(new Roomdata("./resources/room1.png", "DOUBLE Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
-
-
-            //room 3
-            
-            //room 4
-            
-            
+            ///single room
+            case 1:
+                //if 1 is chosen, it takes the room details form Roomdata and displays it in a new frame 
+                Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
+                rooms = manager1.getSingleRooms();
+                break;
+                
+                //double room
         }
-        else if(number_of_adults == 2)
-        {
-            
-        }
-        else if(number_of_adults == 3)
-        {
-            
-        }
-        else if(number_of_adults == 4)
-        {
-            
-        }
-        else if(number_of_adults == 5)
-        {
-            
-        }
-        else if(number_of_adults == 6)
-        {
-            
-        }
-        
+               
         for(Roomdata data : rooms)
         {
+            //displays multiple images underneath eachother 
             ImageIcon images = new ImageIcon(data.image);
             Image image = images.getImage();
             Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
@@ -102,20 +78,23 @@ public class Rooms extends JFrame {
             //select button (shows on every picture)
             JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             selectBtn = new JButton("Select");
-            selectBtn.addActionListener(e -> booking());
+            selectBtn.addActionListener(e -> displayRoom(data));
             corner.add(selectBtn);
             this.add(corner, BorderLayout.EAST);
             
+            //adding everything such as name, details, price and select button in room frame 
             addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);
                            
         }
-        add(main, BorderLayout.CENTER);
         
-        //number of children
+        //adding layout and reprinting images 
+       add(main, BorderLayout.CENTER);
+       main.revalidate(); //chatGPT
+       main.repaint();
     }
     
     
-    //add room
+    //adding rooms -> new frames
     private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
     {
         JPanel roomPanel = new JPanel();
@@ -151,6 +130,15 @@ public class Rooms extends JFrame {
         
         //adding main panel to room
         main.add(roomPanel);
+    }
+    
+    //room number selection 
+    private void displayRoom(Roomdata selectedRoom)
+    {
+        JFrame details = new JFrame("Room details");
+        details.setSize(500, 500);
+        details.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+        details.setLocationRelativeTo(null);
     }
     
     //logout 
