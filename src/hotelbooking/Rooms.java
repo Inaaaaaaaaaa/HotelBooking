@@ -11,8 +11,6 @@ package hotelbooking;
 
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
@@ -53,7 +51,7 @@ public class Rooms extends JFrame {
         //align images of rooms in the frame
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
-                
+                        
         //switch case
         switch(number_of_adults)
         {
@@ -83,11 +81,10 @@ public class Rooms extends JFrame {
             this.add(corner, BorderLayout.EAST);
             
             //adding everything such as name, details, price and select button in room frame 
-            addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);
-                           
+            addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);              
         }
         
-        //adding layout and reprinting images 
+       //adding layout and reprinting images 
        add(main, BorderLayout.CENTER);
        main.revalidate(); //chatGPT
        main.repaint();
@@ -155,7 +152,6 @@ public class Rooms extends JFrame {
         Booking bookings = new Booking();
         bookings.setVisible(true);
         this.dispose();
-        
     }
    
     //show Rooms frame
