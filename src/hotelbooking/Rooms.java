@@ -14,7 +14,6 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import java.awt.Dimension;
 import java.awt.Image;
 import java.awt.*;
 import java.util.ArrayList;
@@ -25,6 +24,8 @@ public class Rooms extends JFrame {
         //variables
         private int number_of_adults;
         private int number_of_children;
+        private int number_of_doublerooms;
+        private int number_of_singlerooms;
         public JComboBox<Integer> requested_number_of_rooms;
         private JButton logoutBtn;
         private JButton selectBtn;
@@ -32,14 +33,16 @@ public class Rooms extends JFrame {
         private static final int Image_width = 300;
         private static final int Image_height = 300;
         
-    public Rooms(int adults, int children)
+    public Rooms(int adults, int children, int doublerooms, int singlerooms)
     {
         this.number_of_adults = adults;
         this.number_of_children = children;
+        this.number_of_doublerooms = doublerooms;
+        this.number_of_singlerooms = singlerooms;
         
         //creating frame
         setTitle("Rooms");
-        setSize(700,700);
+        setSize(600,700);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
@@ -54,39 +57,109 @@ public class Rooms extends JFrame {
         JPanel main = new JPanel();
         main.setLayout(new BoxLayout(main, BoxLayout.Y_AXIS));
                         
-        //switch case
-        switch(number_of_adults)
+        //switch case for number of single rooms
+        switch(number_of_singlerooms)
         {
             ///single room
             case 1:
-                
-                if(number_of_children == 1) 
+                if((number_of_children == 1 && number_of_adults == 0) 
+                  || (number_of_adults == 1 && number_of_children == 0)
+                  || (number_of_adults == 1 && number_of_children == 1))  
                 {
+                //takes the room details from Roomdata and displays it in a new frame -> single rooms only
                 Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
                 rooms = manager1.getSingleRooms();
                 }
-                else
-                {
-                //if 1 is chosen, it takes the room details form Roomdata and displays it in a new frame 
-                Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
-                rooms = manager1.getSingleRooms();
-                }
-               
                 break;
                 
-            //double room
+                //2 single rooms
             case 2:
-                if(number_of_children == 1 || number_of_children == 2) 
+                if((number_of_adults == 2 && number_of_children == 0)
+                  ||(number_of_adults == 1 && number_of_children == 2)
+                  ||(number_of_adults == 2 && number_of_children == 1)
+                  ||(number_of_adults == 2 && number_of_children == 2))
                 {
                     Roomdata.RoomManager manager2 = new Roomdata.RoomManager();
-                    rooms = manager2.getDoubleRooms();
+                    rooms = manager2.getSingleRooms();
                 }
-                else
+                break;
+                
+            //3 single rooms
+            case 3:
+                if((number_of_adults == 3 && number_of_children == 0)
+                        || (number_of_adults == 2 && number_of_children == 1)
+                        || (number_of_adults == 1 && number_of_children == 2)
+                        || (number_of_adults == 0 && number_of_children == 3)
+                        || (number_of_adults == 2 && number_of_children == 0)
+                        || (number_of_adults == 1 && number_of_children == 1))
                 {
-                    Roomdata.RoomManager manager2 = new Roomdata.RoomManager();
-                    rooms = manager2.getDoubleRooms(); 
+                    Roomdata.RoomManager manager3 = new Roomdata.RoomManager();
+                    rooms = manager3.getSingleRooms();
                 }
-
+                break;
+                
+            //4 single rooms
+            case 4:
+                if((number_of_adults == 4 && number_of_children == 0)
+                        || (number_of_adults == 3 && number_of_children == 1) 
+                        || (number_of_adults == 2 && number_of_children == 2)
+                        || (number_of_adults == 1 && number_of_children == 3)
+                        || (number_of_adults == 0 && number_of_children == 4))
+                {
+                    Roomdata.RoomManager manager4 = new Roomdata.RoomManager();
+                    rooms = manager4.getSingleRooms();
+                }
+                break;
+                
+            //5 single rooms
+            case 5:
+                if((number_of_adults == 5 && number_of_children == 0)
+                        || (number_of_adults == 4 && number_of_children == 1) 
+                        || (number_of_adults == 3 && number_of_children == 2)
+                        || (number_of_adults == 2 && number_of_children == 3)
+                        || (number_of_adults == 1 && number_of_children == 4)
+                        || (number_of_adults == 0 && number_of_children == 5))
+                {
+                    Roomdata.RoomManager manager5 = new Roomdata.RoomManager();
+                    rooms = manager5.getSingleRooms();
+                }
+                break;
+                
+            //6 single rooms
+            case 6:
+                if((number_of_adults == 6 && number_of_children == 0)
+                        || (number_of_adults == 5 && number_of_children == 1) 
+                        || (number_of_adults == 4 && number_of_children == 2)
+                        || (number_of_adults == 3 && number_of_children == 3)
+                        || (number_of_adults == 2 && number_of_children == 4)
+                        || (number_of_adults == 1 && number_of_children == 5)
+                        || (number_of_adults == 0 && number_of_children == 6))
+                {
+                    Roomdata.RoomManager manager6 = new Roomdata.RoomManager();
+                    rooms = manager6.getSingleRooms();
+                }
+                break;
+            //7 single rooms
+            default:
+                break;
+        }
+        
+        switch(number_of_doublerooms)
+        {
+            case 1:
+                if((number_of_adults == 2 && number_of_children == 0) 
+                        || (number_of_adults == 1 && number_of_children == 1)
+                        || (number_of_adults == 2 && number_of_children == 1)
+                        || (number_of_adults == 2 && number_of_children == 2)
+                        || (number_of_adults == 1 && number_of_children == 2)
+                        || (number_of_adults == 0 && number_of_children == 2))
+                {
+                    Roomdata.RoomManager manager = new Roomdata.RoomManager();
+                    rooms = manager.getDoubleRooms();
+                }
+                break;
+                
+            default:
                 break;
         }
                
@@ -115,7 +188,8 @@ public class Rooms extends JFrame {
         }
         
        //adding layout and reprinting images 
-       add(main, BorderLayout.CENTER);
+       JScrollPane scroll = new JScrollPane(main);
+       add(scroll, BorderLayout.EAST);
        main.revalidate(); //chatGPT
        main.repaint();
     }
@@ -124,15 +198,14 @@ public class Rooms extends JFrame {
     private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
     {
         JPanel roomPanel = new JPanel();
-        roomPanel.setLayout(new BoxLayout(roomPanel, BoxLayout.X_AXIS));
+        GridBagConstraints constraints = new GridBagConstraints(); //chatGPT
         
-        //image and button panel
+        constraints.gridx = 0;
+        constraints.gridy = 0;
+        constraints.anchor = GridBagConstraints.WEST; //chatGPT
         JLabel image = new JLabel(roomimage);
-        roomPanel.add(image);
+        roomPanel.add(image, constraints);
              
-        //spacing for image and details
-        roomPanel.add(Box.createRigidArea(new Dimension(10, 0)));
-        
         //labels
         JLabel name = new JLabel(roomName);
         JLabel price = new JLabel(roomPrice);
@@ -147,13 +220,31 @@ public class Rooms extends JFrame {
         details.add(roomdescription);
         details.add(price);
         
-        roomPanel.add(details);
+        constraints.gridx = 1;
+        roomPanel.add(details, constraints);
+        
+        constraints.gridx = 2;
         
         //adding button
         JPanel buttonPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT));
         buttonPanel.add(selectBtn);
-        roomPanel.add(buttonPanel);
+        roomPanel.add(buttonPanel, constraints);
         
+        //combo box for room count
+        JComboBox<Integer> roomcount = new JComboBox<>();
+        
+        for(int index = 1; index <= 6; index++)
+        {
+            roomcount.addItem(index);
+        }
+        buttonPanel.add(roomcount);
+        buttonPanel.add(selectBtn);
+        
+        selectBtn.addActionListener(e -> {
+        int roomselected = (Integer) roomcount.getSelectedItem();
+                });
+        
+        roomPanel.add(buttonPanel, constraints);
         //adding main panel to room
         main.add(roomPanel);
     }
@@ -162,7 +253,7 @@ public class Rooms extends JFrame {
     private void displayRoom(Roomdata selectedRoom)
     {
         JFrame details = new JFrame("Room details");
-        details.setSize(500, 500);
+        details.setSize(900, 900);
         details.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         details.setLocationRelativeTo(null);
     }
