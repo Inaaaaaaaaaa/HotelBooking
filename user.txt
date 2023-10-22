@@ -364,3 +364,28 @@ Number of children: 0
 Number of double rooms: 0
 Number of single rooms: 1
 --------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 1
+--------------------
+Number of adults: 2
+Number of children: 4
+Number of double rooms: 1
+Number of single rooms: 0
+--------------------
+Number of adults: 1
+Number of children: 3
+Number of double rooms: 1
+Number of single rooms: 0
+--------------------
+Number of adults: 1
+Number of children: 2
+Number of double rooms: 0
+Number of single rooms: 2
+--------------------
+Number of adults: 2
+Number of children: 0
+Number of double rooms: 1
+Number of single rooms: 0
+--------------------
