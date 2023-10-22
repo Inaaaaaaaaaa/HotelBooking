@@ -236,3 +236,48 @@ Number of children: 0
 Number of adults: 1
 Number of children: 0
 --------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 0
+--------------------
+Number of adults: 1
+Number of children: 1
+--------------------
+Number of adults: 2
+Number of children: 2
+--------------------
+Number of adults: 2
+Number of children: 0
+--------------------

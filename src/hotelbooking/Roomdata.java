@@ -33,6 +33,7 @@ public class Roomdata {
     {
         private List<Roomdata> rooms = new ArrayList<>();
         
+        //single rooms
         public List<Roomdata> getSingleRooms()
         {
             //room1
@@ -42,6 +43,17 @@ public class Roomdata {
            //room3
            return rooms;
         }
+        
+        //double rooms
+        public List<Roomdata> getDoubleRooms()
+        {
+           rooms.add(new Roomdata("./resources/room2.png", "Double Room", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-1 single bed<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+            return rooms;
+            
+        }
+        //
+        
+        
     }
     
 }

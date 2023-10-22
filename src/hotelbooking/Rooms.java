@@ -29,6 +29,8 @@ public class Rooms extends JFrame {
         private JButton logoutBtn;
         private JButton selectBtn;
         private List<Roomdata> rooms = new ArrayList<>();
+        private static final int Image_width = 300;
+        private static final int Image_height = 300;
         
     public Rooms(int adults, int children)
     {
@@ -57,12 +59,35 @@ public class Rooms extends JFrame {
         {
             ///single room
             case 1:
+                
+                if(number_of_children == 1) 
+                {
+                Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
+                rooms = manager1.getSingleRooms();
+                }
+                else
+                {
                 //if 1 is chosen, it takes the room details form Roomdata and displays it in a new frame 
                 Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
                 rooms = manager1.getSingleRooms();
+                }
+               
                 break;
                 
-                //double room
+            //double room
+            case 2:
+                if(number_of_children == 1 || number_of_children == 2) 
+                {
+                    Roomdata.RoomManager manager2 = new Roomdata.RoomManager();
+                    rooms = manager2.getDoubleRooms();
+                }
+                else
+                {
+                    Roomdata.RoomManager manager2 = new Roomdata.RoomManager();
+                    rooms = manager2.getDoubleRooms(); 
+                }
+
+                break;
         }
                
         for(Roomdata data : rooms)
@@ -70,9 +95,14 @@ public class Rooms extends JFrame {
             //displays multiple images underneath eachother 
             ImageIcon images = new ImageIcon(data.image);
             Image image = images.getImage();
-            Image resizedImage= image.getScaledInstance(300, 300, java.awt.Image.SCALE_SMOOTH);
+            
+            double scale = Math.min((double) Image_width / image.getWidth(null), (double) Image_height / image.getHeight(null));
+            int newWidth = (int) (image.getWidth(null) * scale);
+            int newHeight = (int) (image.getHeight(null) * scale);
+            
+            Image resizedImage = image.getScaledInstance(newWidth, newHeight, java.awt.Image.SCALE_SMOOTH);
             ImageIcon resizedIcon = new ImageIcon(resizedImage);
-                        
+                  
             //select button (shows on every picture)
             JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             selectBtn = new JButton("Select");
@@ -89,7 +119,6 @@ public class Rooms extends JFrame {
        main.revalidate(); //chatGPT
        main.repaint();
     }
-    
     
     //adding rooms -> new frames
     private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
@@ -159,5 +188,4 @@ public class Rooms extends JFrame {
     {
         setVisible(true);
     }
-   
 }
