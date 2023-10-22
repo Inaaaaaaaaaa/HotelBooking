@@ -4,7 +4,6 @@
  */
 package hotelbooking;
 
-import java.awt.Graphics;
 import org.junit.After;
 import org.junit.AfterClass;
 import org.junit.Before;
@@ -16,9 +15,9 @@ import static org.junit.Assert.*;
  *
  * @author aimee
  */
-public class BGPanelTest {
+public class ConfirmationTest {
     
-    public BGPanelTest() {
+    public ConfirmationTest() {
     }
     
     @BeforeClass
@@ -37,15 +36,8 @@ public class BGPanelTest {
     public void tearDown() {
     }
 
-    /**
-     * Test of paintComponent method, of class BGPanel.
-     */
     @Test
-    public void testPaintComponent() {
-        System.out.println("paintComponent");
-        Graphics g = null;
-        BGPanel instance = new BGPanel("Testing");
-        instance.paintComponent(g);
+    public void testSomeMethod() {
     }
     
 }

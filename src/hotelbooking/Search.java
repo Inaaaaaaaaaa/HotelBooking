@@ -23,6 +23,9 @@ public class Search extends JFrame implements ActionListener {
     private JFrame search;
     public JComboBox<Integer> number_of_adults;
     public JComboBox<Integer> number_of_children;
+    public JComboBox<Integer> number_of_doublerooms;
+    public JComboBox<Integer> number_of_singlerooms;
+
     public JButton nextBtn;
     private JButton logoutBtn;
     
@@ -62,7 +65,21 @@ public class Search extends JFrame implements ActionListener {
         {
             this.number_of_children.addItem(index);
         }
-       
+        
+        //number of double rooms
+        this.number_of_doublerooms = new JComboBox<>();
+        for(int index = 0; index <= 6; index++)
+        {
+            this.number_of_doublerooms.addItem(index);
+        }
+        
+        //number of single rooms
+        this.number_of_singlerooms = new JComboBox<>();
+        for(int index = 0; index <= 6; index++)
+        {
+            this.number_of_singlerooms.addItem(index);
+        }
+        
     }
     
     public void Panels()
@@ -84,6 +101,16 @@ public class Search extends JFrame implements ActionListener {
         JLabel childLabel = new JLabel("Number of children: ");
         centerPanel.add(childLabel);
         centerPanel.add(this.number_of_children);
+        
+        //double room label
+        JLabel doubleLabel = new JLabel("Number of double rooms: ");
+        centerPanel.add(doubleLabel);
+        centerPanel.add(this.number_of_doublerooms);
+        
+        //single room label
+        JLabel singleLabel = new JLabel("Number of single rooms: ");
+        centerPanel.add(singleLabel);
+        centerPanel.add(this.number_of_singlerooms);
         
         this.add(centerPanel, BorderLayout.CENTER);
         
@@ -118,6 +145,8 @@ public class Search extends JFrame implements ActionListener {
         //adding number of adults&children to actionlistener
        this.number_of_adults.addActionListener(this);
        this.number_of_children.addActionListener(this);
+       this.number_of_doublerooms.addActionListener(this);
+       this.number_of_singlerooms.addActionListener(this);
     }
         
     @Override
@@ -136,6 +165,8 @@ public class Search extends JFrame implements ActionListener {
         //saving informtion of number of adults and children 
         int adults = (int) this.number_of_adults.getSelectedItem();
         int children = (int) this.number_of_children.getSelectedItem();
+        int doublerooms = (int) this.number_of_doublerooms.getSelectedItem();
+        int singlerooms = (int) this.number_of_singlerooms.getSelectedItem();
         
         //save to user.txt
         try(BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true)))
@@ -143,6 +174,10 @@ public class Search extends JFrame implements ActionListener {
             writer.write("Number of adults: " + adults);
             writer.newLine();
             writer.write("Number of children: " + children);
+            writer.newLine();
+            writer.write("Number of double rooms: " + doublerooms);
+            writer.newLine();
+            writer.write("Number of single rooms: " + singlerooms);
             writer.newLine();
             //line breaker
             writer.write("--------------------");
@@ -153,7 +188,7 @@ public class Search extends JFrame implements ActionListener {
             e.printStackTrace();
         }
         
-        Rooms show = new Rooms(adults, children);
+        Rooms show = new Rooms(adults, children, doublerooms, singlerooms);
         show.showRooms();
         this.dispose();
     }
