@@ -28,6 +28,7 @@ public class Rooms extends JFrame {
         private int number_of_singlerooms;
         private int roomNumber;
         public JComboBox<Integer> requested_number_of_rooms;
+        private List<Roomdata> selectedRooms = new ArrayList<>();
         private JButton logoutBtn;
         private JButton selectBtn;
         private List<Roomdata> rooms = new ArrayList<>();
@@ -168,7 +169,7 @@ public class Rooms extends JFrame {
         for(Roomdata data : rooms)
         {
             //displays multiple images underneath eachother 
-            ImageIcon images = new ImageIcon(data.image);
+            ImageIcon images = new ImageIcon(data.roomImage);
             Image image = images.getImage();
             
             double scale = Math.min((double) Image_width / image.getWidth(null), (double) Image_height / image.getHeight(null));
@@ -181,7 +182,7 @@ public class Rooms extends JFrame {
             //select button (shows on every picture)
             JPanel corner = new JPanel(new FlowLayout(FlowLayout.RIGHT));
             selectBtn = new JButton("Select");
-            selectBtn.addActionListener(e -> displayRoom(data));
+            selectBtn.addActionListener(e -> displayRoom());
             corner.add(selectBtn);
             this.add(corner, BorderLayout.EAST);
             
@@ -258,6 +259,9 @@ public class Rooms extends JFrame {
         
         selectBtn.addActionListener(e -> {
         int roomselected = (Integer) roomcount.getSelectedItem();
+        Roomdata selectedRoom = new Roomdata(roomNumber, "hi", roomName, roomDetails, roomPrice);
+        selectedRooms.add(selectedRoom);
+        displayRoom();
                 });
         
         roomPanel.add(buttonPanel, constraints);
@@ -266,10 +270,13 @@ public class Rooms extends JFrame {
     }
     
     //room number selection 
-    private void displayRoom(Roomdata selectedRoom)
+    private void displayRoom()
     {
-        Confirmation confirmationFrame = new Confirmation(selectedRoom.roomNumber, selectedRoom.image, selectedRoom.roomName, selectedRoom.roomDetails, selectedRoom.roomPrice);
-        confirmationFrame.showConfirmation();
+        for(Roomdata selectedRoom : selectedRooms)
+        {
+            Confirmation confirmations = new Confirmation(selectedRoom.roomNumber, selectedRoom.roomImage, selectedRoom.roomName, selectedRoom.roomDetails, selectedRoom.roomPrice);
+            confirmations.showConfirmation();
+        }
     }
     
     //logout 

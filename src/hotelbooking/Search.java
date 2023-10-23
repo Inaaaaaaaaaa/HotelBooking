@@ -196,6 +196,13 @@ public class Search extends JFrame implements ActionListener {
         this.dispose();
     }
     
+    //confirmation status
+    public void setConfirmationStatus(String status)
+    {
+        this.confirmation = status;
+    }
+    
+
     //Login frame set to visible
     public void logout()
     {

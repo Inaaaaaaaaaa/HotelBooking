@@ -6,3 +6,33 @@ Number of double rooms: 0
 Number of single rooms: 1
 Confirmation status: null
 --------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 2
+Confirmation status: null
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 1
+Confirmation status: null
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 1
+Confirmation status: null
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 1
+Confirmation status: null
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of double rooms: 0
+Number of single rooms: 1
+Confirmation status: null
+--------------------

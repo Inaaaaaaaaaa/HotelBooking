@@ -118,10 +118,6 @@ public class Login extends JFrame {
             writing.newLine();
             JOptionPane.showMessageDialog(this, "Registration successful!");
             
-            Search searchFrame = new Search();
-            searchFrame.setVisible(true);
-            this.dispose();
-            
             //leaves box cleared
             usernameF.setText("");   
             passwordF.setText("");

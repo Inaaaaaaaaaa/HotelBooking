@@ -13,17 +13,17 @@ import java.util.ArrayList;
 
 public class Roomdata {
     
-    String image;
+    String roomImage;
     String roomName;
     String roomDetails;
     String roomPrice;
     int roomNumber;
     
     
-    public Roomdata(int roomNumber, String image, String roomName, String roomDetails, String roomPrice)
+    public Roomdata(int roomNumber, String roomImage, String roomName, String roomDetails, String roomPrice)
     {
         this.roomNumber = roomNumber;
-        this.image = image;
+        this.roomImage = roomImage;
         this.roomName = roomName;
         this.roomDetails = roomDetails;
         this.roomPrice = roomPrice;
