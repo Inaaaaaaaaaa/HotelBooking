@@ -25,6 +25,7 @@ public class Search extends JFrame implements ActionListener {
     public JComboBox<Integer> number_of_children;
     public JComboBox<Integer> number_of_doublerooms;
     public JComboBox<Integer> number_of_singlerooms;
+    public String confirmation;
 
     public JButton nextBtn;
     private JButton logoutBtn;
@@ -79,7 +80,6 @@ public class Search extends JFrame implements ActionListener {
         {
             this.number_of_singlerooms.addItem(index);
         }
-        
     }
     
     public void Panels()
@@ -111,7 +111,8 @@ public class Search extends JFrame implements ActionListener {
         JLabel singleLabel = new JLabel("Number of single rooms: ");
         centerPanel.add(singleLabel);
         centerPanel.add(this.number_of_singlerooms);
-        
+       
+        //position of the labels
         this.add(centerPanel, BorderLayout.CENTER);
         
         //south panel
@@ -179,6 +180,8 @@ public class Search extends JFrame implements ActionListener {
             writer.newLine();
             writer.write("Number of single rooms: " + singlerooms);
             writer.newLine();
+            writer.write("Confirmation status: " + confirmation);
+            writer.newLine();
             //line breaker
             writer.write("--------------------");
             writer.newLine();
@@ -188,7 +191,7 @@ public class Search extends JFrame implements ActionListener {
             e.printStackTrace();
         }
         
-        Rooms show = new Rooms(adults, children, doublerooms, singlerooms);
+        Rooms show = new Rooms(adults, children, doublerooms, singlerooms, 101);
         show.showRooms();
         this.dispose();
     }

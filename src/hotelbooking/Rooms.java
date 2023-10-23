@@ -26,6 +26,7 @@ public class Rooms extends JFrame {
         private int number_of_children;
         private int number_of_doublerooms;
         private int number_of_singlerooms;
+        private int roomNumber;
         public JComboBox<Integer> requested_number_of_rooms;
         private JButton logoutBtn;
         private JButton selectBtn;
@@ -33,12 +34,13 @@ public class Rooms extends JFrame {
         private static final int Image_width = 300;
         private static final int Image_height = 300;
         
-    public Rooms(int adults, int children, int doublerooms, int singlerooms)
+    public Rooms(int adults, int children, int doublerooms, int singlerooms, int roomNumber)
     {
         this.number_of_adults = adults;
         this.number_of_children = children;
         this.number_of_doublerooms = doublerooms;
         this.number_of_singlerooms = singlerooms;
+        this.roomNumber = roomNumber;
         
         //creating frame
         setTitle("Rooms");
@@ -193,7 +195,21 @@ public class Rooms extends JFrame {
        main.revalidate(); //chatGPT
        main.repaint();
     }
+    //get and set methods
+    public int getRoomNumber()
+    {
+        return roomNumber;
+    }
     
+    public int getSingleRoom()
+    {
+        return number_of_singlerooms;
+    }
+    
+    public int getDoubleRoom()
+    {
+        return number_of_doublerooms;
+    }
     //adding rooms -> new frames
     private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
     {
@@ -252,10 +268,8 @@ public class Rooms extends JFrame {
     //room number selection 
     private void displayRoom(Roomdata selectedRoom)
     {
-        JFrame details = new JFrame("Room details");
-        details.setSize(900, 900);
-        details.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-        details.setLocationRelativeTo(null);
+        Confirmation confirmationFrame = new Confirmation(selectedRoom.roomNumber, selectedRoom.image, selectedRoom.roomName, selectedRoom.roomDetails, selectedRoom.roomPrice);
+        confirmationFrame.showConfirmation();
     }
     
     //logout 

@@ -17,10 +17,12 @@ public class Roomdata {
     String roomName;
     String roomDetails;
     String roomPrice;
+    int roomNumber;
     
     
-    public Roomdata(String image, String roomName, String roomDetails, String roomPrice)
+    public Roomdata(int roomNumber, String image, String roomName, String roomDetails, String roomPrice)
     {
+        this.roomNumber = roomNumber;
         this.image = image;
         this.roomName = roomName;
         this.roomDetails = roomDetails;
@@ -36,11 +38,11 @@ public class Roomdata {
         public List<Roomdata> getSingleRooms()
         {
             //room1
-           rooms.add(new Roomdata("./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           rooms.add(new Roomdata(1, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
            //room2
-           rooms.add(new Roomdata("./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           rooms.add(new Roomdata(2, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
            //room3
-           rooms.add(new Roomdata("./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           rooms.add(new Roomdata(3, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
 
            //room 4
            
@@ -51,25 +53,11 @@ public class Roomdata {
         //double rooms
         public List<Roomdata> getDoubleRooms()
         {
-            rooms.add(new Roomdata("./resources/room1.png", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
-            rooms.add(new Roomdata("./resources/room3.jpg", "Double Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+            rooms.add(new Roomdata(6, "./resources/room1.png", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+            rooms.add(new Roomdata(7, "./resources/room3.jpg", "Double Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
            return rooms;
             
         }
         
-        //2 single rooms
-        public List<Roomdata> getTwoSingleRooms()
-        {
-            return rooms;
-        }
-        
-        //2 double rooms
-        public List<Roomdata> getTwoDoubleRooms()
-        {
-            return rooms;
-        }
-        
-        
-    }
-    
+    } 
 }

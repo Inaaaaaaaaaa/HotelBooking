@@ -41,7 +41,7 @@ public class RoomsTest {
     @Test
     public void testShowRooms() {
         System.out.println("showRooms");
-        Rooms instance = new Rooms(2,3,1,0);
+        Rooms instance = new Rooms(1, 2,3,1,0);
         instance.showRooms();
     }
 
@@ -51,7 +51,7 @@ public class RoomsTest {
     @Test
     public void testLogout() {
         System.out.println("logout");
-        Rooms instance = new Rooms(2,3,1,0);
+        Rooms instance = new Rooms(1,2,3,1,0);
         instance.logout();
     }
 
@@ -61,7 +61,7 @@ public class RoomsTest {
     @Test
     public void testBooking() {
         System.out.println("booking");
-        Rooms instance = new Rooms(2,3,1,0);
+        Rooms instance = new Rooms(1,2,3,1,0);
         instance.booking();
     }
     

@@ -24,6 +24,9 @@ public class Login extends JFrame {
     public JButton registerBtn;
     private JTextField usernameF;
     private JPasswordField passwordF;
+    private String singleRoom;
+    private String doubleRoom;
+    private int roomNumber;
 
     public Login()
     {
@@ -74,28 +77,30 @@ public class Login extends JFrame {
         String username = usernameF.getText();
         String password = new String(passwordF.getPassword());
         
-        if(isValidLogin(username, password))
+        int loginstat = isValidLogin(username, password);
+        
+        switch(loginstat)
         {
-            //successful login
-            JOptionPane.showMessageDialog(this, "You have logged in successfully :) ");
-            //close login window 
-            this.dispose();
-            
-            //show the search frame
-            Search search1 = new Search();
-            search1.showSearch();
-        }
-        else
-        {
-            //unsuccessful login
-            JOptionPane.showMessageDialog(this, "Details were not found in the system! Please register. ");
-            //leaves box cleared
-            usernameF.setText("");   
-            passwordF.setText("");
-
+            case 1:
+                Search searchFrame = new Search();
+                searchFrame.setVisible(true);
+                this.dispose();
+                break;
+            case 2:
+                //confirmation frame
+                JOptionPane.showMessageDialog(this, "You have logged in successfully :)");
+                this.dispose();
+                Search search1 = new Search();
+                search1.showSearch();
+                break;
+                
+            default:
+                JOptionPane.showMessageDialog(this, "Details were not found! Please try again or register an account!");
+                usernameF.setText("");
+                passwordF.setText("");
+                break; 
         }
     }
-
 
     //regiser user -> test case 1 
     public void registerUser(String username, String password)
@@ -113,6 +118,10 @@ public class Login extends JFrame {
             writing.newLine();
             JOptionPane.showMessageDialog(this, "Registration successful!");
             
+            Search searchFrame = new Search();
+            searchFrame.setVisible(true);
+            this.dispose();
+            
             //leaves box cleared
             usernameF.setText("");   
             passwordF.setText("");
@@ -125,30 +134,29 @@ public class Login extends JFrame {
     }
     
     //check valid login
-    public boolean isValidLogin(String username, String password)
-    {
-        try
-        {
-            //read line in user.txt
-            for (String line : Files.readAllLines(Paths.get("user.txt")))
-            {
-                //username : password 
-                String[] lines = line.split(" : ");
-                //checking if login user/password matches what is in the .txt file 
-                if(lines.length == 2 && lines[0].equals(username) && lines[1].equals(password))
-                {
-                    return true;
+    public int isValidLogin(String username, String password) {
+    try {
+        // Read each line in user.txt
+        for (String line : Files.readAllLines(Paths.get("user.txt"))) {
+            // Split on " : " to get username and password
+            String[] lines = line.split(" : ");
+            if (lines.length >= 2 && lines[0].equals(username) && lines[1].equals(password)) {
+                // User found with matching username and password
+                if (lines.length > 4 && "0".equals(lines[2]) && "none".equals(lines[3]) && "none".equals(lines[4])) {
+                    // User found but has not made any selections
+                    return 1; 
+                } else {
+                    return 2;  // Handle cases where there might be additional info but it's not "0", "none", "none"
                 }
             }
         }
-        catch(IOException e)
-        {
-            e.printStackTrace();
-        }
-        //if not found, return false
-        return false;
+    } catch(IOException e) {
+        e.printStackTrace();
     }
-    
+    // User not found
+    return 0;
+}
+
     //display login frame
     public static void main(String args[])
     {
