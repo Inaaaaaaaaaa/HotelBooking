@@ -18,6 +18,8 @@ import java.awt.Image;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
+import javax.swing.JOptionPane;
+
 
 public class Rooms extends JFrame {
             
@@ -27,13 +29,15 @@ public class Rooms extends JFrame {
         private int number_of_doublerooms;
         private int number_of_singlerooms;
         private int roomNumber;
-        public JComboBox<Integer> requested_number_of_rooms;
-        private List<Roomdata> selectedRooms = new ArrayList<>();
-        private JButton logoutBtn;
-        private JButton selectBtn;
-        private List<Roomdata> rooms = new ArrayList<>();
         private static final int Image_width = 300;
         private static final int Image_height = 300;
+        public JComboBox<Integer> requested_number_of_rooms;
+        private List<Roomdata> selectedRooms = new ArrayList<>();
+        private List<Roomdata> rooms = new ArrayList<>();
+        private JButton logoutBtn;
+        private JButton selectBtn;
+        private JOptionPane invalidInputDialog;
+        
         
     public Rooms(int adults, int children, int doublerooms, int singlerooms, int roomNumber)
     {
@@ -144,6 +148,7 @@ public class Rooms extends JFrame {
                 break;
             //7 single rooms
             default:
+                JOptionPane.showMessageDialog(this, "Invalid input! Please try again!");
                 break;
         }
         
@@ -163,6 +168,16 @@ public class Rooms extends JFrame {
                 break;
                 
             default:
+                  invalidInputDialog = new JOptionPane( "Invalid input! Please try again!");
+                  JDialog dialog = invalidInputDialog.createDialog("Invalid input");
+                  dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                  
+                  //button for user to close the dialog 
+                  JButton okayBtn = new JButton("Okay");
+                  okayBtn.addActionListener(e -> { dialog.setVisible(false); dialog.dispose();
+                          });
+                  
+                  showRooms();
                 break;
         }
                
@@ -298,6 +313,8 @@ public class Rooms extends JFrame {
     //show Rooms frame
     public void showRooms()
     {
-        setVisible(true);
+            Rooms roomsFrame = new Rooms(number_of_adults, number_of_children, number_of_doublerooms, number_of_singlerooms, roomNumber);
+            roomsFrame.showRooms();
+            setVisible(true);
     }
 }
