@@ -14,7 +14,6 @@ import java.awt.BorderLayout;
 import javax.swing.*;
 import javax.swing.BoxLayout;
 import javax.swing.JPanel;
-import java.awt.Image;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
@@ -28,7 +27,6 @@ public class Rooms extends JFrame {
         private int number_of_children;
         private int number_of_doublerooms;
         private int number_of_singlerooms;
-        private int roomNumber;
         private static final int Image_width = 300;
         private static final int Image_height = 300;
         public JComboBox<Integer> requested_number_of_rooms;
@@ -37,15 +35,30 @@ public class Rooms extends JFrame {
         private JButton logoutBtn;
         private JButton selectBtn;
         private JOptionPane invalidInputDialog;
+        private int roomNumber;
         
-        
-    public Rooms(int adults, int children, int doublerooms, int singlerooms, int roomNumber)
+        //get and set methods
+    public int getRoomNumber()
+    {
+        return roomNumber;
+    }
+    
+    public int getSingleRoom()
+    {
+        return number_of_singlerooms;
+    }
+    
+    public int getDoubleRoom()
+    {
+        return number_of_doublerooms;
+    }
+
+    public Rooms(int adults, int children, int doublerooms, int singlerooms)
     {
         this.number_of_adults = adults;
         this.number_of_children = children;
         this.number_of_doublerooms = doublerooms;
         this.number_of_singlerooms = singlerooms;
-        this.roomNumber = roomNumber;
         
         //creating frame
         setTitle("Rooms");
@@ -53,7 +66,7 @@ public class Rooms extends JFrame {
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
         
-        //back button and north panel -> logout button is placed on the right hand corner of the fra,e
+        //back button and north panel -> logout button is placed on the right hand corner of the frame
         JPanel cornerPanel = new JPanel(new FlowLayout(FlowLayout.RIGHT)); //FlowLayout -> chatGPT
         logoutBtn = new JButton("Logout");
         logoutBtn.addActionListener(e -> logout());
@@ -148,7 +161,16 @@ public class Rooms extends JFrame {
                 break;
             //7 single rooms
             default:
-                JOptionPane.showMessageDialog(this, "Invalid input! Please try again!");
+                   invalidInputDialog = new JOptionPane( "Invalid input! Please try again!");
+                  JDialog dialog = invalidInputDialog.createDialog("Invalid input");
+                  dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
+                  
+                  //button for user to close the dialog 
+                  JButton okayBtn = new JButton("Okay");
+                  okayBtn.addActionListener(e -> { dialog.setVisible(false); dialog.dispose();
+                          });
+                  
+                  showRooms();
                 break;
         }
         
@@ -169,15 +191,6 @@ public class Rooms extends JFrame {
                 
             default:
                   invalidInputDialog = new JOptionPane( "Invalid input! Please try again!");
-                  JDialog dialog = invalidInputDialog.createDialog("Invalid input");
-                  dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
-                  
-                  //button for user to close the dialog 
-                  JButton okayBtn = new JButton("Okay");
-                  okayBtn.addActionListener(e -> { dialog.setVisible(false); dialog.dispose();
-                          });
-                  
-                  showRooms();
                 break;
         }
                
@@ -211,21 +224,7 @@ public class Rooms extends JFrame {
        main.revalidate(); //chatGPT
        main.repaint();
     }
-    //get and set methods
-    public int getRoomNumber()
-    {
-        return roomNumber;
-    }
-    
-    public int getSingleRoom()
-    {
-        return number_of_singlerooms;
-    }
-    
-    public int getDoubleRoom()
-    {
-        return number_of_doublerooms;
-    }
+
     //adding rooms -> new frames
     private void addRoom(JPanel main, String roomName, String roomDetails, String roomPrice, ImageIcon roomimage, JButton selectBtn)
     {
@@ -285,6 +284,7 @@ public class Rooms extends JFrame {
     }
     
     //room number selection 
+     //room number selection 
     private void displayRoom()
     {
         for(Roomdata selectedRoom : selectedRooms)
@@ -313,7 +313,7 @@ public class Rooms extends JFrame {
     //show Rooms frame
     public void showRooms()
     {
-            Rooms roomsFrame = new Rooms(number_of_adults, number_of_children, number_of_doublerooms, number_of_singlerooms, roomNumber);
+            Rooms roomsFrame = new Rooms(number_of_adults, number_of_children, number_of_doublerooms, number_of_singlerooms);
             roomsFrame.showRooms();
             setVisible(true);
     }

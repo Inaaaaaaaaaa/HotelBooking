@@ -53,8 +53,8 @@ public class Roomdata {
         //double rooms
         public List<Roomdata> getDoubleRooms()
         {
-            rooms.add(new Roomdata(6, "./resources/room1.png", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
-            rooms.add(new Roomdata(7, "./resources/room3.jpg", "Double Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+            rooms.add(new Roomdata(4, "./resources/room1.png", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+            rooms.add(new Roomdata(5, "./resources/room3.jpg", "Double Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
            return rooms;
             
         }

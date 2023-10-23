@@ -106,7 +106,7 @@ public class Confirmation extends JFrame implements ActionListener {
 
     public void gobacktoroom()
     {
-        Rooms room = new Rooms(1,1,1,1,1);
+        Rooms room = new Rooms(1,1,1,1);
         room.setVisible(true);
         this.dispose();
         

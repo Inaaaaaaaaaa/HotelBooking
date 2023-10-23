@@ -17,7 +17,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class Search extends JFrame implements ActionListener {
+public class Search extends JFrame implements ActionListener{
     
     //variables
     private JFrame search;
@@ -26,6 +26,7 @@ public class Search extends JFrame implements ActionListener {
     public JComboBox<Integer> number_of_doublerooms;
     public JComboBox<Integer> number_of_singlerooms;
     public String confirmation;
+    public int roomNumber;
 
     public JButton nextBtn;
     private JButton logoutBtn;
@@ -38,11 +39,16 @@ public class Search extends JFrame implements ActionListener {
         //initialize components
         Components();
         Panels();
-        
+                
         //size of frame
         setSize(600, 600);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setLocationRelativeTo(null);
+    }
+    
+    public void setRoomNumber(int roomNumber)
+    {
+        this.roomNumber = roomNumber;
     }
     
     //show search frame
@@ -191,8 +197,8 @@ public class Search extends JFrame implements ActionListener {
             e.printStackTrace();
         }
         
-        Rooms show = new Rooms(adults, children, doublerooms, singlerooms, 101);
-        show.showRooms();
+        Rooms show = new Rooms(adults, children, doublerooms, singlerooms);
+        show.setVisible(true);
         this.dispose();
     }
     
@@ -201,7 +207,7 @@ public class Search extends JFrame implements ActionListener {
     {
         this.confirmation = status;
     }
-    
+   
 
     //Login frame set to visible
     public void logout()
