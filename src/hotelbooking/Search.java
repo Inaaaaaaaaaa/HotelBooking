@@ -25,7 +25,7 @@ public class Search extends JFrame implements ActionListener{
     public JComboBox<Integer> number_of_children;
     public JComboBox<Integer> number_of_doublerooms;
     public JComboBox<Integer> number_of_singlerooms;
-    public String confirmation;
+    public String confirmation = "No";
     public int roomNumber;
 
     public JButton nextBtn;

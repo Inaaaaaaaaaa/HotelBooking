@@ -12,11 +12,15 @@ package hotelbooking;
 //when user books a room, this frame shows the user the confirmation of their room and exits
 import javax.swing.*;
 import java.awt.BorderLayout;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import java.util.ArrayList;
+import java.util.List;
+//CHATGPT
+import java.nio.file.Path;
+import java.nio.file.Paths;
+import java.nio.file.Files;
+
+
 
 
 public class Confirmation extends JFrame {
@@ -28,8 +32,9 @@ public class Confirmation extends JFrame {
     private JLabel RoomPrice;
     private JButton confirmationBtn;
     private JButton backBtn;
-    private String confirmationStatus;
+    private String confirmationStatus = "No";
     private String roomPrice;
+
     
     public Confirmation(int roomNumber, Roomdata roomdata)
     {
@@ -71,20 +76,35 @@ public class Confirmation extends JFrame {
     }
     
     
-    private void updateConfirmation()
+    private void updateConfirmation() //CHATGPT
     {
-        //update in text file 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true)))
+        Path file = Paths.get("user.txt");
+        
+        //read files 
+        try
         {
-            writer.write("Confirmation status: " + confirmationStatus);
-            writer.newLine();
+            List<String> lines = Files.readAllLines(file);
+                    
+        //search for line to replace
+       for(int index = lines.size() - 1; index >= 0; index--)
+        {
+            if(lines.get(index).equals("Confirmation status: No"))
+            {
+                //changes the line to Yes
+                lines.set(index, "Confirmation status: Yes");
+                break;
+            }
+        }
+       //write lines back to file
+       Files.write(file, lines);
+            
         }
         catch(IOException e)
         {
             e.printStackTrace();
         }
     }
-    
+        
     public void showConfirmation()
     {
         setVisible(true);
@@ -104,4 +124,5 @@ public class Confirmation extends JFrame {
         this.dispose();
         
     }
+   
 }
