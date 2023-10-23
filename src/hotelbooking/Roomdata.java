@@ -10,6 +10,9 @@ package hotelbooking;
  */
 import java.util.List;
 import java.util.ArrayList;
+import javax.swing.JComboBox;
+import java.util.HashMap;
+import java.awt.event.ActionEvent;
 
 public class Roomdata {
     
@@ -19,8 +22,7 @@ public class Roomdata {
     String roomPrice;
     int roomNumber;
     int count;
-    
-    
+
     public Roomdata(int roomNumber, String roomImage, String roomName, String roomDetails, String roomPrice)
     {
         this.roomNumber = roomNumber;
@@ -33,13 +35,16 @@ public class Roomdata {
     //get price from rooms
      public double getPrice()
         {
-            return Double.parseDouble(this.roomPrice.replace("Price: $", ""));
+            return Double.parseDouble(this.roomPrice.replace("Price: $", "").trim());
         }
      
     //this class is made so it prints out many rooms based on user input 
     public static class RoomManager
     {
         private List<Roomdata> rooms = new ArrayList<>();
+        
+        //track count room selection
+        HashMap<String, Integer> roomselectioncount = new HashMap<>();
         
         //single rooms
         public List<Roomdata> getSingleRooms()
@@ -75,7 +80,6 @@ public class Roomdata {
            return rooms;
         }
         
-        
         //get room number and its price
         public Roomdata getRoomNumbers(int roomNumber)
         {
@@ -87,6 +91,32 @@ public class Roomdata {
                 }
             }
             return null;
+        }
+        
+        public void actionPerformed(ActionEvent e)
+        {
+            JComboBox comboBox = (JComboBox) e.getSource();
+            String selectedRoom = (String) comboBox.getSelectedItem();
+            int selectedIndex = comboBox.getSelectedIndex();
+            
+            //if index is 0, then set the price to 0
+            if(selectedIndex == 0)
+            {
+                 Roomdata selectedRoomdata = this.getRoomNumbers(Integer.parseInt(selectedRoom));
+                 
+                 if(selectedRoomdata != null)
+                 {
+                     //setting price to $0
+                     selectedRoomdata.roomPrice = "Price: $0";
+                 }
+            }
+            else
+                 {
+                     //else if add 1 more every time user selected more than 1 of the same room
+                     roomselectioncount.put(selectedRoom, roomselectioncount.getOrDefault(selectedRoom, 0) + 1); 
+                     Roomdata selectedRoomdata = this.getRoomNumbers(Integer.parseInt(selectedRoom));
+                 }
+
         }
     } 
 }

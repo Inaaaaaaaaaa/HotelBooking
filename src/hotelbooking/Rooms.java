@@ -231,27 +231,7 @@ public class Rooms extends JFrame {
             selectBtn.addActionListener(e -> displayRoom());
             corner.add(selectBtn);
             this.add(corner, BorderLayout.EAST);
-                /*
-                int roomselected = ;
-                
-                //check if room exists in the list
-                boolean exists = false;
-                for (Roomdata room : selectedRooms)
-                {
-                    if(room.roomNumber == roomNumber)
-                    {
-                        room.count += roomselected;
-                        exists = true;
-                        break;
-                    }
-                }
-                if(!exists)
-                {
-                    Roomdata selectedroom = new Roomdata(roomNumber, "", roomName, roomDetails, roomPrice);
-                    selectedRooms.add(selectedroom);
-                }
-            });
-         */
+
             //adding everything such as name, details, price and select button in room frame 
             addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);              
         }
@@ -302,7 +282,7 @@ public class Rooms extends JFrame {
         //combo box for room count
         JComboBox<Integer> roomcount = new JComboBox<>();
         
-        for(int index = 1; index <= 6; index++)
+        for(int index = 0; index <= 6; index++)
         {
             roomcount.addItem(index);
         }
