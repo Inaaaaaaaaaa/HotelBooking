@@ -283,13 +283,12 @@ public class Rooms extends JFrame {
         main.add(roomPanel);
     }
     
-    //room number selection 
      //room number selection 
     private void displayRoom()
     {
         for(Roomdata selectedRoom : selectedRooms)
         {
-            Confirmation confirmations = new Confirmation(selectedRoom.roomNumber, selectedRoom.roomImage, selectedRoom.roomName, selectedRoom.roomDetails, selectedRoom.roomPrice);
+            Confirmation confirmations = new Confirmation(selectedRoom.roomNumber, selectedRoom);
             confirmations.showConfirmation();
         }
     }

@@ -29,24 +29,23 @@ public class Confirmation extends JFrame implements ActionListener {
     private JButton confirmationBtn;
     private JButton backBtn;
     private String confirmationStatus;
+    private String roomPrice;
     
-    public Confirmation(int roomNumber, String image, String roomName, String roomDetails, String roomPrice)
+    public Confirmation(int roomNumber, Roomdata roomdata)
     {
         this.roomNumber = roomNumber;
+        this.roomPrice = roomdata.roomPrice;
         
         setTitle("Confirmation");
         setSize(700, 700);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
+      
+        //roomprice
+        RoomPrice = new JLabel(this.roomPrice);
         
-        //displaying room details 
-        labelImage = new JLabel(new ImageIcon(image));
-        RoomName = new JLabel(roomName);
-        RoomDetails = new JLabel(roomDetails);
-        RoomPrice = new JLabel(roomPrice);
-        
-         //southpanel
+        //southpanel
         JPanel southPanel = new JPanel();
         //confirm and back button
         backBtn = new JButton("Back");
@@ -64,10 +63,11 @@ public class Confirmation extends JFrame implements ActionListener {
         add(labelImage, BorderLayout.CENTER);
         add(RoomName, BorderLayout.NORTH);
         add(RoomDetails);
-        add(RoomPrice);
+        add(RoomPrice, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
     }
     
+    @Override
     public void actionPerformed(ActionEvent e)
     {
         if(e.getSource() == confirmationBtn)

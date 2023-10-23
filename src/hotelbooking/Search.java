@@ -198,7 +198,7 @@ public class Search extends JFrame implements ActionListener{
         }
         
         Rooms show = new Rooms(adults, children, doublerooms, singlerooms);
-        show.setVisible(true);
+        show.setVisible(true); //SHOWS ROOMS FRAME 
         this.dispose();
     }
     

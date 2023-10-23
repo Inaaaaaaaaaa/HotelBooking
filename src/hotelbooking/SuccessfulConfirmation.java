@@ -19,7 +19,6 @@ import java.nio.file.Paths;
 
 public class SuccessfulConfirmation extends JFrame {
     
-    
     public SuccessfulConfirmation()
     {
         //title of the frame 
