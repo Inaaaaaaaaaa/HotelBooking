@@ -18,24 +18,42 @@ import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
+import java.awt.Image;
 
 
 public class Rooms extends JFrame {
             
-        //variables
+        //variables - private 
         private int number_of_adults;
         private int number_of_children;
         private int number_of_doublerooms;
         private int number_of_singlerooms;
+        private int roomNumber;
+        
+        //variables - public 
+        public String roomImage;
+        public String roomName;
+        public String roomDetails;
+        public String roomPrice;
+        public int count = 1;
+        
+        //variables static 
         private static final int Image_width = 300;
         private static final int Image_height = 300;
+        
+        //variables Combo box
         public JComboBox<Integer> requested_number_of_rooms;
+        
+        //variables Lists
         private List<Roomdata> selectedRooms = new ArrayList<>();
         private List<Roomdata> rooms = new ArrayList<>();
+        
+        //variables Buttons
         private JButton logoutBtn;
         private JButton selectBtn;
+        
+        //variables pane
         private JOptionPane invalidInputDialog;
-        private int roomNumber;
         
         //get and set methods
     public int getRoomNumber()
@@ -213,7 +231,27 @@ public class Rooms extends JFrame {
             selectBtn.addActionListener(e -> displayRoom());
             corner.add(selectBtn);
             this.add(corner, BorderLayout.EAST);
-            
+                /*
+                int roomselected = ;
+                
+                //check if room exists in the list
+                boolean exists = false;
+                for (Roomdata room : selectedRooms)
+                {
+                    if(room.roomNumber == roomNumber)
+                    {
+                        room.count += roomselected;
+                        exists = true;
+                        break;
+                    }
+                }
+                if(!exists)
+                {
+                    Roomdata selectedroom = new Roomdata(roomNumber, "", roomName, roomDetails, roomPrice);
+                    selectedRooms.add(selectedroom);
+                }
+            });
+         */
             //adding everything such as name, details, price and select button in room frame 
             addRoom(main, data.roomName, data.roomDetails, data.roomPrice, resizedIcon, selectBtn);              
         }
@@ -273,8 +311,25 @@ public class Rooms extends JFrame {
         
         selectBtn.addActionListener(e -> {
         int roomselected = (Integer) roomcount.getSelectedItem();
-        Roomdata selectedRoom = new Roomdata(roomNumber, "hi", roomName, roomDetails, roomPrice);
-        selectedRooms.add(selectedRoom);
+        Roomdata selectedRoom = new Roomdata(roomNumber, roomImage, roomName, roomDetails, roomPrice);
+        
+        //checks if room is in list
+        boolean exists = false;
+        for(Roomdata room : selectedRooms)
+        {
+            if(room.roomNumber == selectedRoom.roomNumber)
+            {
+                //incease count of rooms selected
+                room.count += roomselected;
+                exists = true;
+                break;
+            }
+        }
+        if(!exists)
+        {
+            selectedRoom.count = roomselected;
+            selectedRooms.add(selectedRoom);
+        }
         displayRoom();
                 });
         

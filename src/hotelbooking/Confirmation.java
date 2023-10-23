@@ -19,7 +19,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 
 
-public class Confirmation extends JFrame implements ActionListener {
+public class Confirmation extends JFrame {
     
     private int roomNumber;
     private JLabel labelImage;
@@ -43,6 +43,7 @@ public class Confirmation extends JFrame implements ActionListener {
         setLayout(new BorderLayout());
       
         //roomprice
+        RoomName = new JLabel("Room number: " + roomNumber);
         RoomPrice = new JLabel(this.roomPrice);
         
         //southpanel
@@ -53,35 +54,27 @@ public class Confirmation extends JFrame implements ActionListener {
         southPanel.add(backBtn);
         
         confirmationBtn = new JButton("Confirm");
-        confirmationBtn.addActionListener(e -> SuccessfulConfirmation());
-        southPanel.add(confirmationBtn);
-        confirmationStatus = "No";
+        confirmationBtn.addActionListener(e -> 
+                {
+                    //changes .txt file to Yes 
+                    confirmationStatus = "Yes";
+                    updateConfirmation();
+                    SuccessfulConfirmation();
+                });
+                southPanel.add(confirmationBtn);
+                confirmationStatus = "No";
                 
-        this.add(southPanel, BorderLayout.SOUTH);
-        
         //adding to frame 
-        add(labelImage, BorderLayout.CENTER);
         add(RoomName, BorderLayout.NORTH);
-        add(RoomDetails);
         add(RoomPrice, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
     }
     
-    @Override
-    public void actionPerformed(ActionEvent e)
-    {
-        if(e.getSource() == confirmationBtn)
-        {
-            //updates status to yes in .txt file
-            confirmationStatus = "Yes";
-            updateConfirmation();
-        }
-    }
     
     private void updateConfirmation()
     {
         //update in text file 
-        try(BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt")))
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter("user.txt", true)))
         {
             writer.write("Confirmation status: " + confirmationStatus);
             writer.newLine();

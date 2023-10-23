@@ -18,6 +18,7 @@ public class Roomdata {
     String roomDetails;
     String roomPrice;
     int roomNumber;
+    int count;
     
     
     public Roomdata(int roomNumber, String roomImage, String roomName, String roomDetails, String roomPrice)
@@ -29,6 +30,12 @@ public class Roomdata {
         this.roomPrice = roomPrice;
     }
     
+    //get price from rooms
+     public double getPrice()
+        {
+            return Double.parseDouble(this.roomPrice.replace("Price: $", ""));
+        }
+     
     //this class is made so it prints out many rooms based on user input 
     public static class RoomManager
     {
@@ -68,18 +75,15 @@ public class Roomdata {
            return rooms;
         }
         
-        //get room price
-        public String getRoomPrice(int roomNumber)
+        
+        //get room number and its price
+        public Roomdata getRoomNumbers(int roomNumber)
         {
-            List<Roomdata> roomss = new ArrayList<>();
-            rooms.addAll(getSingleRooms());
-            rooms.addAll(getDoubleRooms());
-            
-            for(Roomdata room : roomss)
+            for(Roomdata room : rooms)
             {
                 if(room.roomNumber == roomNumber)
                 {
-                    return room.roomPrice;
+                    return room;
                 }
             }
             return null;
