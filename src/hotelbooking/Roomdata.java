@@ -20,7 +20,7 @@ public class Roomdata {
     String roomName;
     String roomDetails;
     String roomPrice;
-    int roomNumber;
+    int roomNumber = 1;
     int count;
 
     public Roomdata(int roomNumber, String roomImage, String roomName, String roomDetails, String roomPrice)
@@ -32,6 +32,7 @@ public class Roomdata {
         this.roomPrice = roomPrice;
     }
     
+    
     //get price from rooms
      public double getPrice()
         {
@@ -41,15 +42,33 @@ public class Roomdata {
     //this class is made so it prints out many rooms based on user input 
     public static class RoomManager
     {
-        private List<Roomdata> rooms = new ArrayList<>();
-        
-        //track count room selection
-        HashMap<String, Integer> roomselectioncount = new HashMap<>();
-        
-        //single rooms
-        public List<Roomdata> getSingleRooms()
+        private final List<Roomdata> rooms;
+       
+        public RoomManager()
         {
-            //room1
+            rooms = new ArrayList<>();
+            initializeRooms();
+        }
+        
+            //get method for combo box
+        public List<String> getRoomNames()
+        {
+        List<String> roomNames = new ArrayList<>();
+        for(Roomdata room : rooms)
+        {
+            roomNames.add(room.roomName);
+        }
+        return roomNames;
+        }
+        
+        public void updateRoomSelection(String roomName)
+        {
+            roomselectioncount.put(roomName, roomselectioncount.getOrDefault(roomName, 0) + 1);
+        }
+        
+        public void initializeRooms()
+        {
+                        //room1
            rooms.add(new Roomdata(1, "./resources/room1.png", "Room 1 ~ 1 Single Bed", "<html>-Shower access<br>-1 Bathroom<br>Cleaning service<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $50"));
            //room2
            rooms.add(new Roomdata(2, "./resources/room2.jpg", "Room 2 ~ 2 Single Beds", "<html>-Limited Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>Beautiful view<br></html>", "Price: $100"));
@@ -69,8 +88,16 @@ public class Roomdata {
            rooms.add(new Roomdata(9, "./resources/room9.png", "Room 9 ~ 3 Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-2 Bathrooms<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $130"));
            //room10
            rooms.add(new Roomdata(10, "./resources/room10.jpg", "Room 10 ~ 1 Double bed and 1 single bed", "<html>-Free Unlimited Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>-Swimming pool<br>-Gym access<br>Free lunch buffet</html>", "Price: $170"));
-
-           return rooms;
+        }
+        
+       
+        //track count room selection
+        HashMap<String, Integer> roomselectioncount = new HashMap<>();
+        
+        //single rooms
+        public List<Roomdata> getSingleRooms()
+        {
+           return new ArrayList<>(rooms);
         }
    
         //get room number and its price
@@ -86,30 +113,31 @@ public class Roomdata {
             return null;
         }
         
+        //adds total cost of rooms
+        public double getTotal()
+        {
+            double totalPrice = 0;
+            
+            for(String roomName : roomselectioncount.keySet())
+            {
+                int roomNumber = Integer.parseInt(roomName.replaceAll("[^0-9]", "").trim());
+                Roomdata room = getRoomNumbers(roomNumber);
+                
+                if(room != null)
+                {
+                    totalPrice += room.getPrice() * roomselectioncount.get(roomName);
+                }
+            }
+            return totalPrice;
+        }
         public void actionPerformed(ActionEvent e)
         {
-            JComboBox comboBox = (JComboBox) e.getSource();
-            String selectedRoom = (String) comboBox.getSelectedItem();
-            int selectedIndex = comboBox.getSelectedIndex();
+            double totalPrice = getTotal();
+            String message = "Total price is: " + totalPrice;
             
-            //if index is 0, then set the price to 0
-            if(selectedIndex == 0)
-            {
-                 Roomdata selectedRoomdata = this.getRoomNumbers(Integer.parseInt(selectedRoom));
-                 
-                 if(selectedRoomdata != null)
-                 {
-                     //setting price to $0
-                     selectedRoomdata.roomPrice = "Price: $0";
-                 }
-            }
-            else
-                 {
-                     //else if add 1 more every time user selected more than 1 of the same room
-                     roomselectioncount.put(selectedRoom, roomselectioncount.getOrDefault(selectedRoom, 0) + 1); 
-                     Roomdata selectedRoomdata = this.getRoomNumbers(Integer.parseInt(selectedRoom));
-                 }
+           javax.swing.JOptionPane.showMessageDialog(null, message, "Confirmation", javax.swing.JOptionPane.INFORMATION_MESSAGE);
 
-        }
-    } 
+        } 
+       
+    }
 }

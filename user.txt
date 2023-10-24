@@ -53,3 +53,83 @@ Number of children: 1
 Number of single rooms: 1
 Confirmation status: No
 --------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: Yes
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 2
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 0
+Number of single rooms: 1
+Confirmation status: No
+--------------------

@@ -299,6 +299,7 @@ public class Rooms extends JFrame {
         {
             Confirmation confirmations = new Confirmation(selectedRoom.roomNumber, selectedRoom);
             confirmations.showConfirmation();
+            this.dispose();
         }
     }
     

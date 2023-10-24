@@ -40,18 +40,17 @@ public class Confirmation extends JFrame {
     public Confirmation(int roomNumber, Roomdata roomdata)
     {
         this.roomNumber = roomNumber;
-        this.count = count;
-        this.roomPrice = roomdata.roomPrice + count;
-        
+        double pricevalue = roomdata.getPrice();
+       
         setTitle("Confirmation");
-        setSize(700, 700);
+        setSize(400, 400);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(new BorderLayout());
       
         //roomprice
         RoomName = new JLabel("Room number: " + roomNumber);
-        RoomPrice = new JLabel(this.roomPrice);
+        RoomPrice = new JLabel("Price: $" + pricevalue);
         
         //southpanel
         JPanel southPanel = new JPanel();
@@ -76,7 +75,6 @@ public class Confirmation extends JFrame {
         add(RoomPrice, BorderLayout.CENTER);
         add(southPanel, BorderLayout.SOUTH);
     }
-    
     
     private void updateConfirmation() //CHATGPT
     {
@@ -124,7 +122,5 @@ public class Confirmation extends JFrame {
         Rooms room = new Rooms(1,1,1);
         room.setVisible(true);
         this.dispose();
-        
     }
-   
 }
