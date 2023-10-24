@@ -50,36 +50,29 @@ public class Roomdata {
         public List<Roomdata> getSingleRooms()
         {
             //room1
-           rooms.add(new Roomdata(1, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           rooms.add(new Roomdata(1, "./resources/room1.png", "Room 1 ~ 1 Single Bed", "<html>-Shower access<br>-1 Bathroom<br>Cleaning service<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $50"));
            //room2
-           rooms.add(new Roomdata(2, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $200"));
+           rooms.add(new Roomdata(2, "./resources/room2.jpg", "Room 2 ~ 2 Single Beds", "<html>-Limited Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>Beautiful view<br></html>", "Price: $100"));
            //room3
-           rooms.add(new Roomdata(3, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
+           rooms.add(new Roomdata(3, "./resources/room3.jpg", "Room 3 ~ 2 Single Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
            //room 4
-           rooms.add(new Roomdata(4, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $300"));
+           rooms.add(new Roomdata(4, "./resources/room4.jpg", "Room 4 ~ 3 Single Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-2 Bathrooms<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $90"));
            ///room5
-           rooms.add(new Roomdata(5, "./resources/room1.png", "Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           rooms.add(new Roomdata(5, "./resources/room5.jpg", "Room 5 ~ 4 Single Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-2 Bathrooms<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $140"));
+           //room 6
+           rooms.add(new Roomdata(6, "./resources/room6.png", "Room 6 ~ 1 Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
+           //room 7
+           rooms.add(new Roomdata(7, "./resources/room7.png", "Room 7 ~ 4 Single Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-3 Bathrooms<br>Cleaning service provided<br>-4 Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>-Swimming pool<br>-Free TV<br>-Free breakfast provided</html>", "Price: $150"));
+           //room8
+           rooms.add(new Roomdata(8, "./resources/room8.jpg", "Room 8 ~ 1 Double bed 2 Single Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-2 Bathrooms<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $103"));
+           //room9
+           rooms.add(new Roomdata(9, "./resources/room9.png", "Room 9 ~ 3 Single Bed", "<html>-Free Wi-Fi<br>-Shower access<br>-2 Bathrooms<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $130"));
+           //room10
+           rooms.add(new Roomdata(10, "./resources/room10.jpg", "Room 10 ~ 1 Double bed and 1 single bed", "<html>-Free Unlimited Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>-Swimming pool<br>-Gym access<br>Free lunch buffet</html>", "Price: $170"));
+
            return rooms;
         }
-        
-        //double rooms
-        public List<Roomdata> getDoubleRooms()
-        {
-            //room1
-            rooms.add(new Roomdata(6, "./resources/room1.png", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $100"));
-            //room2
-            rooms.add(new Roomdata(7, "./resources/room3.jpg", "Double Bed and 2 single beds", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $150"));
-            //room3
-            rooms.add(new Roomdata(8, "./resources/room3.jpg", "3 Double Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $130"));
-            //room4
-            rooms.add(new Roomdata(9, "./resources/room3.jpg", "Double Bed and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $200"));
-            //room5
-            rooms.add(new Roomdata(10, "./resources/room3.jpg", "3 Double Beds", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $105"));
-            //room6
-            rooms.add(new Roomdata(11, "./resources/room3.jpg", "2 Double Beds and 1 single bed", "<html>-Free Wi-Fi<br>-Shower access<br>-1 Bathroom<br>-Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $250"));
-           return rooms;
-        }
-        
+   
         //get room number and its price
         public Roomdata getRoomNumbers(int roomNumber)
         {
