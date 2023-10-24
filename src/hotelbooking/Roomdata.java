@@ -10,10 +10,12 @@ package hotelbooking;
  */
 import java.util.List;
 import java.util.ArrayList;
-import javax.swing.JComboBox;
 import java.util.HashMap;
 import java.awt.event.ActionEvent;
 
+/*
+Rommdata is a place where it displays all the rooms details
+*/
 public class Roomdata {
     
     String roomImage;
@@ -32,8 +34,7 @@ public class Roomdata {
         this.roomPrice = roomPrice;
     }
     
-    
-    //get price from rooms
+    //get price from rooms THIS DOES SHOW IN CONFIRMATION FRAME
      public double getPrice()
         {
             return Double.parseDouble(this.roomPrice.replace("Price: $", "").trim());
@@ -44,13 +45,14 @@ public class Roomdata {
     {
         private final List<Roomdata> rooms;
        
+        //initialization
         public RoomManager()
         {
             rooms = new ArrayList<>();
             initializeRooms();
         }
         
-            //get method for combo box
+        //get method for combo box
         public List<String> getRoomNames()
         {
         List<String> roomNames = new ArrayList<>();
@@ -61,14 +63,16 @@ public class Roomdata {
         return roomNames;
         }
         
+        //when user selects multiple rooms, it adds count 
         public void updateRoomSelection(String roomName, int count)
         {
             roomselectioncount.put(roomName, roomselectioncount.getOrDefault(roomName, 0) + 1);
         }
         
+        //adds details of each room in Roomdata frame where user is able to view and select rooms
         public void initializeRooms()
         {
-                        //room1
+           //room1
            rooms.add(new Roomdata(1, "./resources/room1.png", "Room 1 ~ 1 Single Bed", "<html>-Shower access<br>-1 Bathroom<br>Cleaning service<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle</html>", "Price: $50"));
            //room2
            rooms.add(new Roomdata(2, "./resources/room2.jpg", "Room 2 ~ 2 Single Beds", "<html>-Limited Wi-Fi<br>-Shower access<br>-1 Bathroom<br>Cleaning service provided<br>-Towels<br>-Telephone<br>-Coffee machine<br>-Electric kettle<br>Beautiful view<br></html>", "Price: $100"));
@@ -113,7 +117,7 @@ public class Roomdata {
             return null;
         }
         
-        //adds total cost of rooms
+        //adds total cost of rooms NOT WORKING
         public double getTotal()
         {
             double totalPrice = 0;
@@ -130,6 +134,7 @@ public class Roomdata {
             }
             return totalPrice;
         }
+        //shows the total price in confirmation frame when user selected rooms (THIS DOESN'T SHOW UP ON ANYTHING - TESTING)
         public void actionPerformed(ActionEvent e)
         {
             double totalPrice = getTotal();

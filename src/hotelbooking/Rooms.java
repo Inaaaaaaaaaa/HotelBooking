@@ -8,7 +8,10 @@ package hotelbooking;
  *
  * @author aimee
  */
-
+/*
+Room frame where it display an image where user is able to chose how many adults/children and single rooms 
+they would like to book. 
+*/
 import javax.swing.JFrame;
 import java.awt.BorderLayout;
 import javax.swing.*;
@@ -19,7 +22,6 @@ import java.util.ArrayList;
 import java.util.List;
 import javax.swing.JOptionPane;
 import java.awt.Image;
-
 
 public class Rooms extends JFrame {
             
@@ -263,7 +265,7 @@ public class Rooms extends JFrame {
         }
         buttonPanel.add(roomcount);
         buttonPanel.add(selectBtn);
-        
+        //select button -> on every single image for rooms selection
         selectBtn.addActionListener(e -> {
         int roomselected = (Integer) roomcount.getSelectedItem();
         Roomdata selectedRoom = new Roomdata(roomNumber, roomImage, roomName, roomDetails, roomPrice);
@@ -304,7 +306,7 @@ public class Rooms extends JFrame {
         }
     }
     
-    //logout 
+    //logout frame
     public void logout()
     {
         Login logins = new Login();
@@ -312,7 +314,7 @@ public class Rooms extends JFrame {
         this.dispose();
     }
     
-    //booking 
+    //booking frame
     public void booking()
     {
         Booking bookings = new Booking();

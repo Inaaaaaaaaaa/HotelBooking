@@ -9,6 +9,9 @@ package hotelbooking;
  *
  * @author aimee
  */
+/*
+This is for the image for the login frame
+*/
 import java.awt.Graphics;
 import java.awt.Image;
 import javax.swing.*;

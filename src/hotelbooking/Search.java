@@ -16,7 +16,9 @@ import javax.swing.*;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
-
+/*
+User is able to pick number of adults, children and single rooms
+*/
 public class Search extends JFrame implements ActionListener{
     
     //variables
@@ -133,7 +135,6 @@ public class Search extends JFrame implements ActionListener{
         centerPanel.add(imageLabel);
     }
    
-    
     public void initActionListener() 
     {
         //adding number of adults&children to actionlistener
@@ -190,7 +191,6 @@ public class Search extends JFrame implements ActionListener{
         this.confirmation = status;
     }
    
-
     //Login frame set to visible
     public void logout()
     {

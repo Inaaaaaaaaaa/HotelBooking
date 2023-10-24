@@ -9,7 +9,9 @@ package hotelbooking;
  * @author aimee
  */
 
-//when user books a room, this frame shows the user the confirmation of their room and exits
+/*when user books a room, this frame shows the user the confirmation of their room and exits.
+This frame also shows the total price of the rooms user has booked.
+*/
 import javax.swing.*;
 import java.awt.BorderLayout;
 import java.io.IOException;

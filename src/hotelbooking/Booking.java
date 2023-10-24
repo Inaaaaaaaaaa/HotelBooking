@@ -27,7 +27,6 @@ public class Booking extends JFrame {
         setLocationRelativeTo(null);
     }
     
-   
     //show Booking frame
     public void showBookings()
     {
