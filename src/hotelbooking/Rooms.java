@@ -26,7 +26,6 @@ public class Rooms extends JFrame {
         //variables - private 
         private int number_of_adults;
         private int number_of_children;
-        private int number_of_doublerooms;
         private int number_of_singlerooms;
         private int roomNumber;
         
@@ -66,16 +65,10 @@ public class Rooms extends JFrame {
         return number_of_singlerooms;
     }
     
-    public int getDoubleRoom()
-    {
-        return number_of_doublerooms;
-    }
-
-    public Rooms(int adults, int children, int doublerooms, int singlerooms)
+    public Rooms(int adults, int children, int singlerooms)
     {
         this.number_of_adults = adults;
         this.number_of_children = children;
-        this.number_of_doublerooms = doublerooms;
         this.number_of_singlerooms = singlerooms;
         
         //creating frame
@@ -192,25 +185,6 @@ public class Rooms extends JFrame {
                 break;
         }
         
-        switch(number_of_doublerooms)
-        {
-            case 1:
-                if((number_of_adults == 2 && number_of_children == 0) 
-                        || (number_of_adults == 1 && number_of_children == 1)
-                        || (number_of_adults == 2 && number_of_children == 1)
-                        || (number_of_adults == 2 && number_of_children == 2)
-                        || (number_of_adults == 1 && number_of_children == 2)
-                        || (number_of_adults == 0 && number_of_children == 2))
-                {
-                    Roomdata.RoomManager manager = new Roomdata.RoomManager();
-                    rooms = manager.getDoubleRooms();
-                }
-                break;
-                
-            default:
-                  invalidInputDialog = new JOptionPane( "Invalid input! Please try again!");
-                break;
-        }
                
         for(Roomdata data : rooms)
         {
@@ -344,10 +318,10 @@ public class Rooms extends JFrame {
         this.dispose();
     }
    
-    //show Rooms frame
+    //show Rooms frame for single frame
     public void showRooms()
     {
-            Rooms roomsFrame = new Rooms(number_of_adults, number_of_children, number_of_doublerooms, number_of_singlerooms);
+            Rooms roomsFrame = new Rooms(number_of_adults, number_of_children, number_of_singlerooms);
             roomsFrame.showRooms();
             setVisible(true);
     }

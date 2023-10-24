@@ -42,7 +42,7 @@ public class RoomsTest {
     @Test
     public void testGetRoomNumber() {
         System.out.println("getRoomNumber");
-        Rooms instance = new Rooms(2,4,5,6);
+        Rooms instance = new Rooms(2,5,6);
         int expResult = 0;
         int result = instance.getRoomNumber();
         assertEquals(expResult, result);
@@ -54,21 +54,9 @@ public class RoomsTest {
     @Test
     public void testGetSingleRoom() {
         System.out.println("getSingleRoom");
-        Rooms instance = new Rooms(2,4,5,6);
+        Rooms instance = new Rooms(2, 5,6);
         int expResult = 0;
         int result = instance.getSingleRoom();
-        assertEquals(expResult, result);
-    }
-
-    /**
-     * Test of getDoubleRoom method, of class Rooms.
-     */
-    @Test
-    public void testGetDoubleRoom() {
-        System.out.println("getDoubleRoom");
-        Rooms instance = new Rooms(2,4,5,6);
-        int expResult = 0;
-        int result = instance.getDoubleRoom();
         assertEquals(expResult, result);
     }
 
@@ -78,7 +66,7 @@ public class RoomsTest {
     @Test
     public void testLogout() {
         System.out.println("logout");
-        Rooms instance = new Rooms(2,4,5,6);
+        Rooms instance = new Rooms(2,5,6);
         instance.logout();
     }
 
@@ -88,7 +76,7 @@ public class RoomsTest {
     @Test
     public void testBooking() {
         System.out.println("booking");
-        Rooms instance = new Rooms(2,4,5,6);
+        Rooms instance = new Rooms(2,5,6);
         instance.booking();
     }
 
@@ -98,7 +86,7 @@ public class RoomsTest {
     @Test
     public void testShowRooms() {
         System.out.println("showRooms");
-        Rooms instance = new Rooms(2,4,5,6);
+        Rooms instance = new Rooms(2,5,6);
         instance.showRooms();
     }
     

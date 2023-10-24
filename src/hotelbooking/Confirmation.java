@@ -34,12 +34,14 @@ public class Confirmation extends JFrame {
     private JButton backBtn;
     private String confirmationStatus = "No";
     private String roomPrice;
+    private int count;
 
     
     public Confirmation(int roomNumber, Roomdata roomdata)
     {
         this.roomNumber = roomNumber;
-        this.roomPrice = roomdata.roomPrice;
+        this.count = count;
+        this.roomPrice = roomdata.roomPrice + count;
         
         setTitle("Confirmation");
         setSize(700, 700);
@@ -119,7 +121,7 @@ public class Confirmation extends JFrame {
 
     public void gobacktoroom()
     {
-        Rooms room = new Rooms(1,1,1,1);
+        Rooms room = new Rooms(1,1,1);
         room.setVisible(true);
         this.dispose();
         
