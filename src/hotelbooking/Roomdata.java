@@ -61,7 +61,7 @@ public class Roomdata {
         return roomNames;
         }
         
-        public void updateRoomSelection(String roomName)
+        public void updateRoomSelection(String roomName, int count)
         {
             roomselectioncount.put(roomName, roomselectioncount.getOrDefault(roomName, 0) + 1);
         }

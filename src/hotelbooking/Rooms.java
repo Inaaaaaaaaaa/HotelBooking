@@ -258,6 +258,7 @@ public class Rooms extends JFrame {
         
         for(int index = 0; index <= 6; index++)
         {
+            //adding combobox 
             roomcount.addItem(index);
         }
         buttonPanel.add(roomcount);
