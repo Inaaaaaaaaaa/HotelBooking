@@ -3,15 +3,16 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Confirmation.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Booking.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Roomdata.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/BGPanel.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/test/hotelbooking/LoginTest.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Login.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Search.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/Rooms.java</file>
-            <file>file:/Users/aimee/Desktop/HotelBooking/src/hotelbooking/SuccessfulConfirmation.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/SuccessfulConfirmation.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/RoomData.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/BGPanel.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/DBManager.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/Booking.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/Client.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/Search.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/Confirmation.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/LoginDB.java</file>
+            <file>file:/C:/Users/jarre/Documents/GitHub/HotelBooking/src/hotelbooking/Login.java</file>
         </group>
     </open-files>
 </project-private>
