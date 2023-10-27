@@ -174,7 +174,7 @@ public class Rooms extends JFrame {
                 break;
             //7 single rooms
             default:
-                   invalidInputDialog = new JOptionPane( "Invalid input! Please try again!");
+                  invalidInputDialog = new JOptionPane("");
                   JDialog dialog = invalidInputDialog.createDialog("Invalid input");
                   dialog.setDefaultCloseOperation(JDialog.DISPOSE_ON_CLOSE);
                   

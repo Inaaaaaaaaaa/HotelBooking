@@ -23,8 +23,6 @@ import java.nio.file.Paths;
 import java.nio.file.Files;
 
 
-
-
 public class Confirmation extends JFrame {
     
     private int roomNumber;
