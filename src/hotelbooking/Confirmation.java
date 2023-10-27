@@ -37,7 +37,7 @@ public class Confirmation extends JFrame {
     private int count;
 
     
-    public Confirmation(int roomNumber, Roomdata roomdata)
+    public Confirmation(int roomNumber, RoomData roomdata)
     {
         this.roomNumber = roomNumber;
         double pricevalue = roomdata.getPrice();
@@ -56,7 +56,7 @@ public class Confirmation extends JFrame {
         JPanel southPanel = new JPanel();
         //confirm and back button
         backBtn = new JButton("Back");
-        backBtn.addActionListener(e -> gobacktoroom());
+        backBtn.addActionListener(e -> goBackToRoom());
         southPanel.add(backBtn);
         
         confirmationBtn = new JButton("Confirm");
@@ -117,7 +117,7 @@ public class Confirmation extends JFrame {
         setVisible(true);
     }
 
-    public void gobacktoroom()
+    public void goBackToRoom()
     {
         Rooms room = new Rooms(1,1,1);
         room.setVisible(true);

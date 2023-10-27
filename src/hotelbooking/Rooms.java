@@ -46,8 +46,8 @@ public class Rooms extends JFrame {
         public JComboBox<Integer> requested_number_of_rooms;
         
         //variables Lists
-        private List<Roomdata> selectedRooms = new ArrayList<>();
-        private List<Roomdata> rooms = new ArrayList<>();
+        private List<RoomData> selectedRooms = new ArrayList<>();
+        private List<RoomData> rooms = new ArrayList<>();
         
         //variables Buttons
         private JButton logoutBtn;
@@ -100,7 +100,7 @@ public class Rooms extends JFrame {
                   || (number_of_adults == 1 && number_of_children == 1))  
                 {
                 //takes the room details from Roomdata and displays it in a new frame -> single rooms only
-                Roomdata.RoomManager manager1 = new Roomdata.RoomManager();
+                RoomData.RoomManager manager1 = new RoomData.RoomManager();
                 rooms = manager1.getSingleRooms();
                 }
                 break;
@@ -112,7 +112,7 @@ public class Rooms extends JFrame {
                   ||(number_of_adults == 2 && number_of_children == 1)
                   ||(number_of_adults == 2 && number_of_children == 2))
                 {
-                    Roomdata.RoomManager manager2 = new Roomdata.RoomManager();
+                    RoomData.RoomManager manager2 = new RoomData.RoomManager();
                     rooms = manager2.getSingleRooms();
                 }
                 break;
@@ -126,7 +126,7 @@ public class Rooms extends JFrame {
                         || (number_of_adults == 2 && number_of_children == 0)
                         || (number_of_adults == 1 && number_of_children == 1))
                 {
-                    Roomdata.RoomManager manager3 = new Roomdata.RoomManager();
+                    RoomData.RoomManager manager3 = new RoomData.RoomManager();
                     rooms = manager3.getSingleRooms();
                 }
                 break;
@@ -139,7 +139,7 @@ public class Rooms extends JFrame {
                         || (number_of_adults == 1 && number_of_children == 3)
                         || (number_of_adults == 0 && number_of_children == 4))
                 {
-                    Roomdata.RoomManager manager4 = new Roomdata.RoomManager();
+                    RoomData.RoomManager manager4 = new RoomData.RoomManager();
                     rooms = manager4.getSingleRooms();
                 }
                 break;
@@ -153,7 +153,7 @@ public class Rooms extends JFrame {
                         || (number_of_adults == 1 && number_of_children == 4)
                         || (number_of_adults == 0 && number_of_children == 5))
                 {
-                    Roomdata.RoomManager manager5 = new Roomdata.RoomManager();
+                    RoomData.RoomManager manager5 = new RoomData.RoomManager();
                     rooms = manager5.getSingleRooms();
                 }
                 break;
@@ -168,7 +168,7 @@ public class Rooms extends JFrame {
                         || (number_of_adults == 1 && number_of_children == 5)
                         || (number_of_adults == 0 && number_of_children == 6))
                 {
-                    Roomdata.RoomManager manager6 = new Roomdata.RoomManager();
+                    RoomData.RoomManager manager6 = new RoomData.RoomManager();
                     rooms = manager6.getSingleRooms();
                 }
                 break;
@@ -188,7 +188,7 @@ public class Rooms extends JFrame {
         }
         
                
-        for(Roomdata data : rooms)
+        for(RoomData data : rooms)
         {
             //displays multiple images underneath eachother 
             ImageIcon images = new ImageIcon(data.roomImage);
@@ -268,11 +268,11 @@ public class Rooms extends JFrame {
         //select button -> on every single image for rooms selection
         selectBtn.addActionListener(e -> {
         int roomselected = (Integer) roomcount.getSelectedItem();
-        Roomdata selectedRoom = new Roomdata(roomNumber, roomImage, roomName, roomDetails, roomPrice);
+        RoomData selectedRoom = new RoomData(roomNumber, roomImage, roomName, roomDetails, roomPrice);
         
         //checks if room is in list
         boolean exists = false;
-        for(Roomdata room : selectedRooms)
+        for(RoomData room : selectedRooms)
         {
             if(room.roomNumber == selectedRoom.roomNumber)
             {
@@ -298,7 +298,7 @@ public class Rooms extends JFrame {
      //room number selection 
     private void displayRoom()
     {
-        for(Roomdata selectedRoom : selectedRooms)
+        for(RoomData selectedRoom : selectedRooms)
         {
             Confirmation confirmations = new Confirmation(selectedRoom.roomNumber, selectedRoom);
             confirmations.showConfirmation();

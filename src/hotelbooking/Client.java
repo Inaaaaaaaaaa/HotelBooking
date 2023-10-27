@@ -11,7 +11,7 @@ package hotelbooking;
 public class Client {
     //display login frame
     public static void main(String args[])
-    {
+    {   
         Login cf = new Login();
         cf.setVisible(true);
     }

@@ -156,4 +156,3 @@ public class Login extends JFrame {
         return 0;
     }
 }
-

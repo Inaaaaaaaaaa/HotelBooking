@@ -90,3 +90,18 @@ Number of single rooms: 2
 Confirmation status: No
 --------------------
 testUser : testPassword
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
+Number of adults: 1
+Number of children: 1
+Number of single rooms: 1
+Confirmation status: No
+--------------------
