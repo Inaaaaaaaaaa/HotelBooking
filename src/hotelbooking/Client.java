@@ -14,5 +14,7 @@ public class Client {
     {   
         Login cf = new Login();
         cf.setVisible(true);
+        
+        LoginDB userDB = new LoginDB();
     }
 }

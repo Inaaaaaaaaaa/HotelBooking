@@ -13,9 +13,9 @@ import java.sql.SQLException;
  * @author jarrett
  */
 public class DBManager {
-    private static final String USER_NAME = "admin"; //your DB username
+    private static final String USER_NAME = "abc"; //your DB username
     private static final String PASSWORD = "123"; //your DB password
-    private static final String URL = "jdbc:derby:LoginDB; create=true";  //url of the DB host
+    private static final String URL = "jdbc:derby://localhost:1527/UsersDB; create=true";  //url of the DB host
 
     Connection conn;
 

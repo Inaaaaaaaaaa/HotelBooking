@@ -27,4 +27,8 @@ public class LoginDB {
             System.out.println(ex.getMessage());
         }
     }
+    
+    public void closeConnection() {
+        this.dbManager.closeConnections();
+    }
 }
