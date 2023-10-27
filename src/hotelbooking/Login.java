@@ -24,8 +24,8 @@ public class Login extends JFrame {
     //variables
     public JButton loginBtn;
     public JButton registerBtn;
-    private JTextField usernameF;
-    private JPasswordField passwordF;
+    public JTextField usernameF;
+    public JPasswordField passwordF;
     private String singleRoom;
     private String doubleRoom;
     private int roomNumber;
@@ -100,13 +100,15 @@ public class Login extends JFrame {
                 JOptionPane.showMessageDialog(this, "Details were not found! Please try again or register an account!");
                 usernameF.setText("");
                 passwordF.setText("");
-                break; 
+                break;
         }
     }
 
     //regiser user -> test case 1 
     public void registerUser(String username, String password)
     {
+        LoginDB userDB = new LoginDB();
+        
         if(username.isEmpty() || password.isEmpty())
         {
             JOptionPane.showMessageDialog(this, "Please fill in both username and password");
@@ -123,12 +125,16 @@ public class Login extends JFrame {
             //leaves box cleared
             usernameF.setText("");   
             passwordF.setText("");
+            
+            // add users into database
+            userDB.registerUserDB(username, password);
         }
         catch(IOException e)
         {
             JOptionPane.showMessageDialog(this, "Unsuccessful! Please try again!");
             e.printStackTrace();
         }
+        userDB.closeConnection();
     }
     
     //check valid login
