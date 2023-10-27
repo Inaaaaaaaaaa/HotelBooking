@@ -133,33 +133,27 @@ public class Login extends JFrame {
     
     //check valid login
     public int isValidLogin(String username, String password) {
-    try {
-        // Read each line in user.txt
-        for (String line : Files.readAllLines(Paths.get("user.txt"))) {
-            // Split on " : " to get username and password
-            String[] lines = line.split(" : ");
-            if (lines.length >= 2 && lines[0].equals(username) && lines[1].equals(password)) {
-                // User found with matching username and password
-                if (lines.length > 4 && "0".equals(lines[2]) && "none".equals(lines[3]) && "none".equals(lines[4])) {
-                    // User found but has not made any selections
-                    return 1; 
-                } else {
-                    return 2;  // Handle cases where there might be additional info but it's not "0", "none", "none"
+        try {
+            // Read each line in user.txt
+            for (String line : Files.readAllLines(Paths.get("user.txt"))) {
+                // Split on " : " to get username and password
+                String[] lines = line.split(" : ");
+                if (lines.length >= 2 && lines[0].equals(username) && lines[1].equals(password)) {
+                    // User found with matching username and password
+                    if (lines.length > 4 && "0".equals(lines[2]) && "none".equals(lines[3]) && "none".equals(lines[4])) {
+                        // User found but has not made any selections
+                        return 1; 
+                    } else {
+                        return 2;  // Handle cases where there might be additional info but it's not "0", "none", "none"
+                    }
                 }
             }
+        } 
+        catch(IOException e) {
+            e.printStackTrace();
         }
-    } catch(IOException e) {
-        e.printStackTrace();
-    }
-    // User not found
-    return 0;
-}
-
-    //display login frame
-    public static void main(String args[])
-    {
-        Login cf = new Login();
-        cf.setVisible(true);
+        // User not found
+        return 0;
     }
 }
 

@@ -134,6 +134,7 @@ public class Roomdata {
             }
             return totalPrice;
         }
+        
         //shows the total price in confirmation frame when user selected rooms (THIS DOESN'T SHOW UP ON ANYTHING - TESTING)
         public void actionPerformed(ActionEvent e)
         {
