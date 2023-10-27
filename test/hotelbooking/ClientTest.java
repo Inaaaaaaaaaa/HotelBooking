@@ -10,17 +10,14 @@ import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import static org.junit.Assert.*;
-import static org.junit.Assert.assertTrue;
-import static org.junit.Assert.assertFalse;
-
 
 /**
  *
- * @author aimee
+ * @author jarre
  */
-public class LoginTest {
+public class ClientTest {
     
-    public LoginTest() {
+    public ClientTest() {
     }
     
     @BeforeClass
@@ -40,26 +37,13 @@ public class LoginTest {
     }
 
     /**
-     * Test of isValidLogin method, of class Login.
+     * Test of main method, of class Login.
      */
     @Test
-    public void testIsValidLogin() {
-        
-        Login instance = new Login();
-        instance.registerUser("testUser", "testPassword");
-
-    }
-
-    /**
-     * Test of registerUser method, of class Login.
-     */
-    @Test
-    public void testRegisterUser() {
-        System.out.println("registerUser");
-        String username = "";
-        String password = "";
-        Login instance = new Login();
-        instance.registerUser(username, password);
+    public void testMain() {
+        System.out.println("main");
+        String[] args = null;
+        Client.main(args);
     }
     
 }

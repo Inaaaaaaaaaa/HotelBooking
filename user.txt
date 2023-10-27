@@ -89,3 +89,4 @@ Number of children: 2
 Number of single rooms: 2
 Confirmation status: No
 --------------------
+testUser : testPassword
